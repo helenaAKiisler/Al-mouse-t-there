@@ -4,7 +4,7 @@ using UnityEngine;
 public class NewMonoBehaviourScript : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private int money = 0;
+    private int _money = 0;
     [HideInInspector] public int MyPublicValue = 0;
 
     public void Awake()
@@ -13,11 +13,17 @@ public class NewMonoBehaviourScript : MonoBehaviour
         Events.OnRequestMoney += RequestMoney;
     }
 
-    public void ChangeMoney(int money) => this.money = money;
-    public void RequestMoney(int money) =>  money;
+    public void OnDestroy()
+    {
+        Events.OnChangeMoney -= ChangeMoney;
+        Events.OnRequestMoney -= RequestMoney;
+    }
+
+    public void ChangeMoney(int money) => this._money = money;
+    public int RequestMoney() =>  _money;
 
     public void Start()
     {
-        Events.ChangeMoney(money);
+        Events.ChangeMoney(_money);
     }
 }
