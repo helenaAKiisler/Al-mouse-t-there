@@ -26,8 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer()
     {
-        Vector2 direction = moveAction.ReadValue<Vector2>();
-        transform.position += new Vector3(direction.x, 0, direction.y) * moveSpeed * Time.deltaTime;
+
     }
 
 }
