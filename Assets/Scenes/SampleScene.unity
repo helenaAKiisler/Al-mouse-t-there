@@ -243,7 +243,8 @@ GameObject:
   - component: {fileID: 158253280}
   - component: {fileID: 158253279}
   - component: {fileID: 158253278}
-  m_Layer: 0
+  - component: {fileID: 158253282}
+  m_Layer: 3
   m_Name: Niit
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -345,6 +346,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &158253282
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158253277}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &291675409
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,6 +763,7 @@ GameObject:
   - component: {fileID: 597385849}
   - component: {fileID: 597385853}
   - component: {fileID: 597385854}
+  - component: {fileID: 597385855}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -887,6 +916,23 @@ MonoBehaviour:
   m_DefaultActionMap: Player (Ground)
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &597385855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597385848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c784c7ced3776d547a26dcd96af1b866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  holdPoint: {fileID: 1546028365}
+  interactRange: 3
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &760051754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1109,7 +1155,7 @@ Transform:
   m_GameObject: {fileID: 1546028364}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.69, y: -0.008, z: 0.062}
+  m_LocalPosition: {x: -1.15, y: -0.36, z: 0.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -17,7 +17,7 @@
                     "priority": 0
                 },
                 {
-                    "name": "Interact (NPC)",
+                    "name": "Talk",
                     "type": "Button",
                     "id": "7da13ef2-a3a7-483a-b3af-02c105440268",
                     "expectedControlType": "",
@@ -27,7 +27,7 @@
                     "priority": 0
                 },
                 {
-                    "name": "Pick up (Item)",
+                    "name": "Interact",
                     "type": "Button",
                     "id": "6cfefa9a-a3b7-4060-8eb2-c0458105386b",
                     "expectedControlType": "",
@@ -100,7 +100,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Interact (NPC)",
+                    "action": "Talk",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -111,7 +111,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pick up (Item)",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
