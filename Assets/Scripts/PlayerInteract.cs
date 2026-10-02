@@ -5,6 +5,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
 {
     public Transform holdPoint;
     private GameObject heldItem = null; //Keeping track of currently held item
+    public float interactRange = 3f;
 
     public void OnInteractItem(InputValue value)
     {
