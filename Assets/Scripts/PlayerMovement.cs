@@ -5,28 +5,31 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    PlayerInput playerInput;
-    InputAction moveAction;
-
+    private Vector2 movementInput;
     //[SerializeField]
     public float moveSpeed = 2f;
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        playerInput = GetComponent<PlayerInput>();
-        moveAction = playerInput.actions.FindAction("Move");
     }
 
     // Update is called once per frame
     void Update()
     {
-        MovePlayer();
+        //Converting 2D movement to 3D
+        Vector3 moveDirection = new Vector3(movementInput.x, 0f, movementInput.y);
+
+        //Moving object relative to world space
+        transform.Translate(moveDirection * moveSpeed * Time.deltaTime, Space.World);
     }
 
-    void MovePlayer()
+    void OnMove(InputValue value)
     {
-
+        //WASD
+        movementInput = value.Get<Vector2>();
     }
 
 }

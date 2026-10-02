@@ -3,14 +3,14 @@
     "name": "NewPlayerControls",
     "maps": [
         {
-            "name": "Player",
+            "name": "Player (Ground)",
             "id": "720b8f12-7159-4b49-bba5-5b748467a6f8",
             "actions": [
                 {
                     "name": "Move",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "b25a9aab-512a-4d83-b4e4-39545f591cae",
-                    "expectedControlType": "",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true,
@@ -19,46 +19,86 @@
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "d2c71cf1-0722-4451-b407-0b67f836033a",
-                    "path": "<Keyboard>/a",
+                    "name": "2D Vector",
+                    "id": "fcf26895-475e-4f83-8ad1-d1b7948fce1d",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Move",
-                    "isComposite": false,
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "65d9c013-b681-42ba-bad9-4cc78d72b50a",
+                    "name": "up",
+                    "id": "9cbbe754-782f-45e3-b545-84c4ce1a724d",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Move",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "6ee2fe94-eb4f-4823-824f-ff16ca60cb52",
+                    "name": "down",
+                    "id": "da839afa-e9c4-4105-8750-892134b86265",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "8396bd67-2886-4a52-ac2e-c5f7845a1bd6",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "86882052-f475-4192-9a1f-d5cb2e226dbc",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Move",
                     "isComposite": false,
-                    "isPartOfComposite": false
-                },
+                    "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "Sea",
+            "id": "da3feca1-e12f-4636-9559-eca8e17868e1",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "c25d6e36-78e7-48b9-bc4d-14a000e35df0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
                 {
                     "name": "",
-                    "id": "35e7f77b-34c3-44dc-bb15-03ef6d2ab20b",
-                    "path": "<Keyboard>/s",
+                    "id": "df6b53d1-7c89-4338-adcb-b54f45ed50d5",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "New action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
