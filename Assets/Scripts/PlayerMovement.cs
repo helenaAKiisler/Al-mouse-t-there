@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movementInput;
     //[SerializeField]
     public float moveSpeed = 2f;
+    public float rotationSpeed = 5f;
 
 
 
@@ -22,8 +23,16 @@ public class PlayerMovement : MonoBehaviour
         //Converting 2D movement to 3D
         Vector3 moveDirection = new Vector3(movementInput.x, 0f, movementInput.y);
 
-        //Moving object relative to world space
+        if (moveDirection != Vector3.zero)
+        {
+            //Moving object relative to world space
+            Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
+            //using slerp for smoothly rotating towards target location
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * moveSpeed * rotationSpeed);
+        }
+
         transform.Translate(moveDirection * moveSpeed * Time.deltaTime, Space.World);
+
     }
 
     void OnMove(InputValue value)
