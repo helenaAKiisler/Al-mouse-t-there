@@ -44,11 +44,18 @@ public class NewMonoBehaviourScript : MonoBehaviour
             //check if  object hit has the "interactable" tag
             heldItem = hitData.collider.gameObject;
 
-            //Disable rigidbody/colliders
+            // Disable colliders so it doesn't collide with the player while held
+            if (heldItem.TryGetComponent<Collider>(out Collider col))
+            {
+                col.enabled = false;
+            }
+
+            //Disable rigidbody and velocity
             if (heldItem.TryGetComponent<Rigidbody>(out Rigidbody rb))
             {
+                rb.linearVelocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
                 rb.isKinematic = true;
-                rb.detectCollisions = false; //For no pushing player
             }
 
             //Parenting hold object to hold point
@@ -61,15 +68,20 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     void DropItem() 
     {
-        //unparent
-        heldItem.transform.SetParent(null);
-        //re enable physics
+        //re-enabling colliders
+        if (heldItem.TryGetComponent<Collider>(out Collider col))
+        {
+            col.enabled = true;
+        }
+
+        //re-enable Rigidbody physics
         if (heldItem.TryGetComponent<Rigidbody>(out Rigidbody rb))
         {
             rb.isKinematic = false;
-            rb.detectCollisions = true;
         }
-        //clear reference
+        //clear reference and
+        //unparent
+        heldItem.transform.SetParent(null);
         heldItem = null;
     }
 
