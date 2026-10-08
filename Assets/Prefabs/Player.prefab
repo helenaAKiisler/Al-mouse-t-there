@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7051558726043013904}
   - component: {fileID: 5326369550686683177}
   - component: {fileID: 5991431593944338221}
+  - component: {fileID: 6052526650725118638}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -185,6 +186,19 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &6052526650725118638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7910188659377374847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b33fc21c6f2b04545a919d701c4ae9c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerNPCInteractor
+  npc_pos: {x: 0, y: 0, z: 0}
 --- !u!1 &8964325365263551361
 GameObject:
   m_ObjectHideFlags: 0

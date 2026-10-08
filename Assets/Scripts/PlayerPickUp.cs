@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class PlayerPickUp : MonoBehaviour
 {
     public Transform holdPoint;
     private GameObject heldItem = null; //Keeping track of currently held item
@@ -36,9 +36,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
         Vector3 rayOrigin = transform.position + Vector3.down * 0.2f;
         float sphereRadius = 0.5f; //Gives ray physical thickness
 
-        RaycastHit hitData;
         //Find nearby item
-        if (Physics.SphereCast(rayOrigin, sphereRadius, transform.forward, out hitData, interactRange, interactableLayer))
+        if (Physics.SphereCast(rayOrigin, sphereRadius, transform.forward, out RaycastHit hitData, interactRange, interactableLayer))
         {
             Debug.Log("Hit object: " + hitData.collider.name);
             //check if  object hit has the "interactable" tag
