@@ -3,9 +3,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerPickUp : MonoBehaviour
 {
-    public Transform holdPoint;
-    private GameObject heldItem = null; //Keeping track of currently held item
-    public float interactRange = 10;
+    [SerializeField] private Transform objectHoldPointTransform; // Where the item will be held
+    private ObjectGrabbable objectGrabbable; //Keeping track of currently held item
+    public float interactRange = 2f;
     public LayerMask interactableLayer;
 
     private void Start()
@@ -20,13 +20,16 @@ public class PlayerPickUp : MonoBehaviour
     {
         Debug.Log("Interact button pressed!");
         //Checking button pressed down
-        if (heldItem== null)
+        if (objectGrabbable == null)
         {
+            //If the player isn't holding an object, they can try grab
             TryPickUp();
         }
         else
         {
-            DropItem();
+            //Currently holding something
+            objectGrabbable.Drop();
+            objectGrabbable = null;
         }
     }
 
@@ -40,48 +43,15 @@ public class PlayerPickUp : MonoBehaviour
         if (Physics.SphereCast(rayOrigin, sphereRadius, transform.forward, out RaycastHit hitData, interactRange, interactableLayer))
         {
             Debug.Log("Hit object: " + hitData.collider.name);
-            //check if  object hit has the "interactable" tag
-            heldItem = hitData.collider.gameObject;
-
-            // Disable colliders so it doesn't collide with the player while held
-            if (heldItem.TryGetComponent<Collider>(out Collider col))
+            if (hitData.transform.TryGetComponent(out objectGrabbable))
             {
-                col.enabled = false;
+                objectGrabbable.Grab(objectHoldPointTransform);
+                Debug.Log(objectGrabbable);
             }
 
-            //Disable rigidbody and velocity
-            if (heldItem.TryGetComponent<Rigidbody>(out Rigidbody rb))
-            {
-                rb.linearVelocity = Vector3.zero;
-                rb.angularVelocity = Vector3.zero;
-                rb.isKinematic = true;
-            }
 
-            //Parenting hold object to hold point
-            heldItem.transform.SetParent(holdPoint);
-            heldItem.transform.localPosition = Vector3.zero; //Snaps to holdpoint option
-            heldItem.transform.localRotation = Quaternion.identity;
 
         }
-    }
-
-    void DropItem() 
-    {
-        //re-enabling colliders
-        if (heldItem.TryGetComponent<Collider>(out Collider col))
-        {
-            col.enabled = true;
-        }
-
-        //re-enable Rigidbody physics
-        if (heldItem.TryGetComponent<Rigidbody>(out Rigidbody rb))
-        {
-            rb.isKinematic = false;
-        }
-        //clear reference and
-        //unparent
-        heldItem.transform.SetParent(null);
-        heldItem = null;
     }
 
     void OnDrawGizmos()
