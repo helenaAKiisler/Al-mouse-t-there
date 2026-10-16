@@ -229,7 +229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2e09db3913ef31c44ae2908426aea2ee, type: 3}
       propertyPath: m_Name
-      value: block3
+      value: stairs
       objectReference: {fileID: 0}
     - target: {fileID: 6978984265101549273, guid: 2e09db3913ef31c44ae2908426aea2ee, type: 3}
       propertyPath: m_LocalPosition.x
@@ -255,10 +255,45 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6978984265101549273, guid: 2e09db3913ef31c44ae2908426aea2ee, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1137064202532421617}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -7473117867128011834, guid: 2e09db3913ef31c44ae2908426aea2ee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8553199249299424462}
   m_SourcePrefab: {fileID: 100100000, guid: 2e09db3913ef31c44ae2908426aea2ee, type: 3}
 --- !u!4 &4118395506315584434 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6978984265101549273, guid: 2e09db3913ef31c44ae2908426aea2ee, type: 3}
   m_PrefabInstance: {fileID: 6484391621514919275}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4735263661103234733 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7473117867128011834, guid: 2e09db3913ef31c44ae2908426aea2ee, type: 3}
+  m_PrefabInstance: {fileID: 6484391621514919275}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &8553199249299424462
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4735263661103234733}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
