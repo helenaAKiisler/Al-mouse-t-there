@@ -179,6 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33fc21c6f2b04545a919d701c4ae9c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerNPCInteractor
+  npc: {fileID: 8364758690790037258, guid: f89a04a90211f404380d93161989d286, type: 3}
   npc_pos: {x: 0, y: 0, z: 0}
 --- !u!136 &5323924413393634581
 CapsuleCollider:
