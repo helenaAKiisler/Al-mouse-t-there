@@ -31,6 +31,13 @@ public class PlayerMovement : MonoBehaviour
     //FixedUpdate for physics and movement
     private void FixedUpdate()
     {
+        //If player is climbing, no moving
+        PlayerClimbing player = GetComponent<PlayerClimbing>();
+        if (player.isClimbing)
+        {
+            return;
+        }
+
         if (!isInBoat)
         {
             //Calculating movement direction

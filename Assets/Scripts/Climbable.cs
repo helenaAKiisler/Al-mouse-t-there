@@ -16,6 +16,8 @@ public class Climbable : MonoBehaviour
             {
                 //Player can now climb
                 other.gameObject.GetComponent<PlayerClimbing>().isClimbing = true;
+                //Turn gravity off for smoother climbing and no jitter
+                other.gameObject.GetComponent<Rigidbody>().useGravity = false;
             }
         }
     }
@@ -27,7 +29,9 @@ public class Climbable : MonoBehaviour
             if (other.gameObject.GetComponent<PlayerClimbing>())
             {
                 //Player can no longer climb
-                other.gameObject.GetComponent<PlayerClimbing>().isClimbing = true;
+                other.gameObject.GetComponent<PlayerClimbing>().isClimbing = false;
+                //Turn gravity back on 
+                other.gameObject.GetComponent<Rigidbody>().useGravity = true;
             }
         }
     }

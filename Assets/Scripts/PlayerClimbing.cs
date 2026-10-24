@@ -6,13 +6,14 @@ public class PlayerClimbing : MonoBehaviour
 {
     private Vector2 movementInput;
     //[SerializeField]
-    public float climbSpeed = 2f;
+    public float climbSpeed = 2.5f;
     private Rigidbody rb;
     public Vector3 movement;
     public bool isClimbing;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         isClimbing = false;
     }
 
@@ -24,12 +25,16 @@ public class PlayerClimbing : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isClimbing)
+        PlayerMovement player = GetComponent<PlayerMovement>();
+        if (player != null)
         {
-            //Climb direction
-            Vector3 climb = new Vector3(movementInput.x, movementInput.y * climbSpeed, transform.position.z);
-            //up up and away
-            rb.MovePosition(transform.position + climb * Time.fixedDeltaTime);
+            if (isClimbing && !player.isInBoat)
+            {
+                //Climb direction
+                Vector3 climb = new Vector3(movementInput.x, movementInput.y * climbSpeed, 0f);
+                //up up and away
+                rb.MovePosition(transform.position + climb * Time.fixedDeltaTime);
+            }
         }
     }
     void OnMove(InputValue value)
