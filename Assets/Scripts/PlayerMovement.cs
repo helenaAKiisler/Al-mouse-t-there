@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float rotationSpeed = 5f;
     private Rigidbody rb;
     public Vector3 movement;
+    public bool isInBoat;
 
 
 
@@ -19,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        isInBoat = false;
     }
 
     // Update is called once per frame - ui, key presses general timers
@@ -29,20 +31,24 @@ public class PlayerMovement : MonoBehaviour
     //FixedUpdate for physics and movement
     private void FixedUpdate()
     {
-        //Calculating movement direction
-        Vector3 myMove = new Vector3(movementInput.x, 0f,
+        if (!isInBoat)
+        {
+            //Calculating movement direction
+            Vector3 myMove = new Vector3(movementInput.x, 0f,
             movementInput.y);
 
-        //When moving...
-        //Checking movementInput since that's  what gets updated by input system
-        if (movementInput != Vector2.zero)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(myMove);
-            //Separate rotation and movement
-            //using slerp for smoothly rotating towards target location
-            rb.MoveRotation(Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * moveSpeed * rotationSpeed));
-            rb.MovePosition(transform.position + myMove * Time.fixedDeltaTime * moveSpeed);
+            //When moving...
+            //Checking movementInput since that's  what gets updated by input system
+            if (movementInput != Vector2.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(myMove);
+                //Separate rotation and movement
+                //using slerp for smoothly rotating towards target location
+                rb.MoveRotation(Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * moveSpeed * rotationSpeed));
+                rb.MovePosition(transform.position + myMove * Time.fixedDeltaTime * moveSpeed);
+            }
         }
+        else { return; }
     }
 
     void OnMove(InputValue value)
