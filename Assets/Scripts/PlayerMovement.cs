@@ -21,33 +21,28 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
+    // Update is called once per frame - ui, key presses general timers
     void Update()
     {
-        //Converting 2D movement to 3D
-        // movement = new Vector3(movementInput.x, 0f, movementInput.y);
-        
-        if (movement != Vector3.zero)
-        {
-            //Moving object relative to world space
-            Quaternion targetRotation = Quaternion.LookRotation(movement);
-            //using slerp for smoothly rotating towards target location
-            rb.MoveRotation(Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * moveSpeed * rotationSpeed));
-        }
-        //
-        //
-        // transform.Translate(moveDirection * moveSpeed * Time.deltaTime, Space.World);
-        // rb.Move(movement, targetRotation);
-
     }
 
+    //FixedUpdate for physics and movement
     private void FixedUpdate()
     {
-        // Quaternion targetRotation = Quaternion.LookRotation(movement);
-        Vector3 myMove = new Vector3(movementInput.x * moveSpeed * Time.deltaTime,0f,
-            movementInput.y * moveSpeed * Time.deltaTime);
-        Quaternion targetRotation = Quaternion.LookRotation(myMove);
-        rb.Move(transform.position + myMove, targetRotation);
+        //Calculating movement direction
+        Vector3 myMove = new Vector3(movementInput.x, 0f,
+            movementInput.y);
+
+        //When moving...
+        //Checking movementInput since that's  what gets updated by input system
+        if (movementInput != Vector2.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(myMove);
+            //Separate rotation and movement
+            //using slerp for smoothly rotating towards target location
+            rb.MoveRotation(Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * moveSpeed * rotationSpeed));
+            rb.MovePosition(transform.position + myMove * Time.fixedDeltaTime * moveSpeed);
+        }
     }
 
     void OnMove(InputValue value)

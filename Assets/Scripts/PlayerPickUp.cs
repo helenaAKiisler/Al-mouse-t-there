@@ -37,7 +37,7 @@ public class PlayerPickUp : MonoBehaviour
     {
         //Had to adjust offset origin upward, so that the ray casts from the waist height
         Vector3 rayOrigin = transform.position + Vector3.down * 0.2f;
-        float sphereRadius = 0.5f; //Gives ray physical thickness
+        float sphereRadius = 0.6f; //Gives ray physical thickness
 
         //Find nearby item
         if (Physics.SphereCast(rayOrigin, sphereRadius, transform.forward, out RaycastHit hitData, interactRange, interactableLayer))
@@ -57,6 +57,6 @@ public class PlayerPickUp : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(transform.position + transform.forward + Vector3.down * 0.2f, 0.5f);
+        Gizmos.DrawSphere(transform.position + transform.forward + Vector3.down * 0.2f, 0.6f);
     }
 }
