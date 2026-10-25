@@ -27,11 +27,16 @@ public class ObjectAttachable : ObjectGrabbable
     {
         if (canAttach && objectAttachPoint != null)
         {
-            //Stays in place
+            //Set it as child of attach point
+            transform.SetParent(objectAttachPoint);
+
+            //Stays in place - freeze physics
             body.isKinematic = true;
             body.useGravity = false;
-            transform.position = objectAttachPoint.position;
-            transform.rotation = objectAttachPoint.rotation;
+
+            //Snapping position and rotation locally - relative to parent
+            transform.localPosition = Vector3.zero;
+            transform.rotation = Quaternion.identity;
 
             //Notify sewerlid that it has handle
             if (currentSewerLid != null)
