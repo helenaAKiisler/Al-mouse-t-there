@@ -1,9 +1,16 @@
+using System;
 using UnityEngine;
 
 public class SewerLid : MonoBehaviour
 {
     [SerializeField] private Transform objectAttachPoint;
     private ObjectAttachable objectAttachable;
+    public bool isOpen;
+
+    private void Start()
+    {
+        isOpen = false;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -11,6 +18,7 @@ public class SewerLid : MonoBehaviour
         {
             attachable.SetTargetAttachPoint(objectAttachPoint);
             attachable.canAttach = true;
+            if ()
             
         }
     }
@@ -23,6 +31,11 @@ public class SewerLid : MonoBehaviour
             attachable.SetTargetAttachPoint(null);
 
         }
+    }
+
+    public void OpenDoor()
+    {
+
     }
 
 }
