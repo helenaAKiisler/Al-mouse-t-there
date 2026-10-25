@@ -41,12 +41,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (!isInBoat)
         {
-
-            if (rb.linearVelocity.y < 0f)
-            {
-                //Faster fall :0
-                rb.AddForce(Vector3.down * fallForce, ForceMode.Acceleration);
-            }
             //Calculating movement direction
             Vector3 myMove = new Vector3(movementInput.x, 0f,
             movementInput.y);
