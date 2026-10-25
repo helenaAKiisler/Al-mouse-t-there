@@ -31,6 +31,14 @@ public class PlayerPickUp : MonoBehaviour
         {
             //Currently holding something
             objectGrabbable.Drop();
+            //If it's an attachable
+            if (objectGrabbable.TryGetComponent<ObjectAttachable>(out ObjectAttachable objectAttachable))
+            {
+                if (objectAttachable.canAttach)
+                {
+                    objectAttachable.Attach();
+                }
+            }
             objectGrabbable = null;
         }
     }
