@@ -1478,6 +1478,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2281631256220070031, guid: 20f69e638f9471c428f00bcb29b1fde0, type: 3}
+      propertyPath: currentNpc
+      value: 
+      objectReference: {fileID: 173332022}
     - target: {fileID: 5362878673738537082, guid: 20f69e638f9471c428f00bcb29b1fde0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.862
@@ -1498,7 +1502,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6052526650725118638, guid: 20f69e638f9471c428f00bcb29b1fde0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 306366010702905391, guid: 20f69e638f9471c428f00bcb29b1fde0, type: 3}
@@ -1736,6 +1741,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &871117874 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6207633000733226143, guid: f89a04a90211f404380d93161989d286, type: 3}
+  m_PrefabInstance: {fileID: 2108248794}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &890244114 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8209927580413974612, guid: b0e9d02bb78954243b90c85f8581b57d, type: 3}
@@ -2312,9 +2328,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 541914793414232549, guid: f89a04a90211f404380d93161989d286, type: 3}
+      propertyPath: choiceText
+      value: 
+      objectReference: {fileID: 871117874}
     - target: {fileID: 2041921718285225682, guid: f89a04a90211f404380d93161989d286, type: 3}
       propertyPath: m_Name
       value: NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930816307165561687, guid: f89a04a90211f404380d93161989d286, type: 3}
+      propertyPath: m_text
+      value: Do you want to help me with somethingsomething?
       objectReference: {fileID: 0}
     - target: {fileID: 3791833815324642280, guid: f89a04a90211f404380d93161989d286, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2375,6 +2399,10 @@ PrefabInstance:
     - target: {fileID: 5006168309535726066, guid: f89a04a90211f404380d93161989d286, type: 3}
       propertyPath: m_Center.z
       value: 0.04866454
+      objectReference: {fileID: 0}
+    - target: {fileID: 6207633000733226143, guid: f89a04a90211f404380d93161989d286, type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

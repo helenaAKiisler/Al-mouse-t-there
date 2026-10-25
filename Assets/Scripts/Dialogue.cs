@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Dialogue
 {
-    public string npcName;
     public string dialogueText;
 }
 

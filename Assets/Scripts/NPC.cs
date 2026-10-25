@@ -1,22 +1,20 @@
-using System;
+
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
+
 
 public class NPC : MonoBehaviour
 {
-    public bool player_detected = false; //is player close enough to the npc to interact
-    public GameObject dialoguePanel;
-    public TMP_Text text;
+    [SerializeField] private TMP_Text text;
+    
+    public bool player_detected; //is player close enough to the npc to interact
 
     public DialogueController dialogueController;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    void Awake()
-    {
-        dialoguePanel.SetActive(false);
-    }
+    public Quest quest;
+    public QuestState questState = QuestState.NotMet;
+    
     void Start()
     {
         text.gameObject.SetActive(false);
@@ -28,19 +26,65 @@ public class NPC : MonoBehaviour
         
     }
 
-    public void Talk()
+    public void Interact()
     {
-        dialoguePanel.SetActive(true);
-        text.gameObject.SetActive(false);
-        dialogueController.ShowNextPage();
+        if (!player_detected)
+        {
+            return;
+        }
         
+        text.gameObject.SetActive(false);
+        switch (questState)
+        {
+            case QuestState.NotMet:
+                StartInteraction();
+                break;
+            case QuestState.WaitingForAnswer:
+                ShowReturnDialogue();
+                break;
+            case QuestState.QuestStarted:
+                //quest dialoog?
+                break;
+            case QuestState.QuestCompleted:
+                ShowCompletedQuestDialogue();
+                break;
+        }
     }
+
+    private void ShowCompletedQuestDialogue()
+    {
+        dialogueController.ShowCompletedQuestDialogue();
+    }
+
+    private void StartInteraction()
+    {
+        dialogueController.StartDialogue(this);
+    }
+
+    private void ShowReturnDialogue()
+    {
+        dialogueController.ShowQuestionAgain(this);
+    }
+    
+    public void AcceptQuest()
+    {
+        questState = QuestState.QuestStarted;
+        
+        if (quest != null)
+            quest.StartQuest();
+    }
+
+    public void DeclineQuest()
+    {
+        questState = QuestState.WaitingForAnswer;
+    }
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.name == "Player")
         {
             player_detected = true;
-            if (!dialoguePanel.activeSelf)
+            if (!dialogueController.IsOpen)
                 //If Dialogue has already started then the guide text won't appear
             {
                 text.gameObject.SetActive(true);
@@ -55,7 +99,7 @@ public class NPC : MonoBehaviour
         {
             player_detected = false;
             text.gameObject.SetActive(false);
-            dialoguePanel.SetActive(false);
+            dialogueController.CloseDialogue();
         }
        
     }
