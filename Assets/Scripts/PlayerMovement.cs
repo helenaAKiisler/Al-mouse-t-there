@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float rotationSpeed = 5f;
     private Rigidbody rb;
     public Vector3 movement;
+    public float fallForce = 5.0f;
     public bool isInBoat;
 
 
@@ -40,6 +41,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (!isInBoat)
         {
+
+            if (rb.linearVelocity.y < 0f)
+            {
+                //Faster fall :0
+                rb.AddForce(Vector3.down * fallForce, ForceMode.Acceleration);
+            }
             //Calculating movement direction
             Vector3 myMove = new Vector3(movementInput.x, 0f,
             movementInput.y);

@@ -2574,6 +2574,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 756664399536317300, guid: 50daca2306dd3e04ebe8d4c32a6bc560, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.11599999
+      objectReference: {fileID: 0}
+    - target: {fileID: 756664399536317300, guid: 50daca2306dd3e04ebe8d4c32a6bc560, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.363
+      objectReference: {fileID: 0}
+    - target: {fileID: 756664399536317300, guid: 50daca2306dd3e04ebe8d4c32a6bc560, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.92616934
+      objectReference: {fileID: 0}
+    - target: {fileID: 756664399536317300, guid: 50daca2306dd3e04ebe8d4c32a6bc560, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.37710786
+      objectReference: {fileID: 0}
+    - target: {fileID: 756664399536317300, guid: 50daca2306dd3e04ebe8d4c32a6bc560, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 44.309
+      objectReference: {fileID: 0}
     - target: {fileID: 4682190544031753697, guid: 50daca2306dd3e04ebe8d4c32a6bc560, type: 3}
       propertyPath: m_Name
       value: Cockroach platform
