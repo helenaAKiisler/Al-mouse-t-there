@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6052526650725118638}
   - component: {fileID: 5323924413393634581}
   - component: {fileID: 8727742028742936232}
+  - component: {fileID: 6337260881698485404}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -33,8 +34,8 @@ Transform:
   m_GameObject: {fileID: 7910188659377374847}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.014149895, z: -0, w: 0.99989986}
-  m_LocalPosition: {x: 3.344, y: 0.495, z: -4.646}
-  m_LocalScale: {x: 0.405, y: 0.7329, z: 0.5914}
+  m_LocalPosition: {x: 3.344, y: 0.523, z: -4.646}
+  m_LocalScale: {x: 0.54452246, y: 1.2859683, z: 0.75906193}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5362878673738537082}
@@ -112,6 +113,7 @@ MonoBehaviour:
   moveSpeed: 2.5
   rotationSpeed: 5
   movement: {x: 0, y: 0, z: 0}
+  isInBoat: 0
 --- !u!114 &5326369550686683177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +233,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6337260881698485404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7910188659377374847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a061b0dc1444d33449a3c65086963361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerClimbing
+  climbSpeed: 2.5
+  movement: {x: 0, y: 0, z: 0}
+  isClimbing: 0
 --- !u!1 &8964325365263551361
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,7 +273,7 @@ Transform:
   m_GameObject: {fileID: 8964325365263551361}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.673, y: 0.041, z: 0.448}
+  m_LocalPosition: {x: 0.758, y: 0.046, z: 0.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
