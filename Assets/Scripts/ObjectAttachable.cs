@@ -6,6 +6,7 @@ public class ObjectAttachable : ObjectGrabbable
     public bool canAttach = false;
     public Rigidbody body;
     public SewerLid currentSewerLid;
+    public IceCream currectStick;
 
     private void Start()
     {
@@ -21,6 +22,11 @@ public class ObjectAttachable : ObjectGrabbable
     public void SetCurrentSewerLid(SewerLid lid)
     {
         this.currentSewerLid = lid;
+    }
+
+    public void SetCurrentStick(IceCream stick)
+    {
+        this.currectStick = stick;
     }
 
     public void Attach()
@@ -39,9 +45,15 @@ public class ObjectAttachable : ObjectGrabbable
             transform.rotation = Quaternion.identity;
 
             //Notify sewerlid that it has handle
-            if (currentSewerLid != null)
+            if (currentSewerLid != null && !currentSewerLid.isIce)
             {
                 currentSewerLid.hasHandle = true;
+            }
+
+            if (currectStick != null)
+            {
+                WaterLevels.Instance.isLvl2 = true;
+                WaterLevels.Instance.isMove = true;
             }
         }
     }

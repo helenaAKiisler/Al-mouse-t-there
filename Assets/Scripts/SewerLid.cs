@@ -8,11 +8,13 @@ public class SewerLid : MonoBehaviour
     private ObjectAttachable objectAttachable;
     public bool isOpen;
     public bool hasHandle;
+    public bool isIce;
 
     private void Start()
     {
         isOpen = false;
         hasHandle = false;
+        isIce = false;
     }
 
     private void OnTriggerEnter(Collider other)

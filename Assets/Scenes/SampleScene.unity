@@ -837,7 +837,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325576337}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4fece863c41f8134baed41bbfd3a6d65, type: 3}
   m_Name: 
@@ -845,6 +845,7 @@ MonoBehaviour:
   objectAttachPoint: {fileID: 414004481}
   isOpen: 0
   hasHandle: 0
+  isIce: 1
 --- !u!65 &325576340
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -866,6 +867,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.5789652, y: 3.853447, z: 4.619888}
   m_Center: {x: 4.5373206, y: 1.4267235, z: -0.98529935}
+--- !u!114 &325576341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325576337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbf695c54e4ff8a48927dd8a4409ea26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IceCream
+  objectAttachPoint: {fileID: 414004481}
+  isOpen: 0
+  hasHandle: 0
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,7 +1204,7 @@ Transform:
   m_GameObject: {fileID: 414004480}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.48, y: 0.75, z: -0.275}
+  m_LocalPosition: {x: 11.48, y: 1.35, z: -0.275}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3429,6 +3445,9 @@ PrefabInstance:
       addedObject: {fileID: 325576340}
     - targetCorrespondingSourceObject: {fileID: 2134721489126824963, guid: fd6adf9fef34f3b499b6fe9225f2766f, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 325576341}
+    - targetCorrespondingSourceObject: {fileID: 2134721489126824963, guid: fd6adf9fef34f3b499b6fe9225f2766f, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 325576339}
   m_SourcePrefab: {fileID: 100100000, guid: fd6adf9fef34f3b499b6fe9225f2766f, type: 3}
 --- !u!1001 &9197964379094066084
@@ -3439,6 +3458,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2280523786598676623, guid: 47700049e8a98c048b490093b2d4870e, type: 3}
+      propertyPath: m_Size.y
+      value: 0.004326849
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280523786598676623, guid: 47700049e8a98c048b490093b2d4870e, type: 3}
+      propertyPath: m_Center.y
+      value: -0.006905689
+      objectReference: {fileID: 0}
     - target: {fileID: 4732444220681981100, guid: 47700049e8a98c048b490093b2d4870e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.1899

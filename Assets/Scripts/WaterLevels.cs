@@ -1,3 +1,4 @@
+using System;
 using Tweens;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -17,8 +18,12 @@ public class WaterLevels : MonoBehaviour
     public bool isPaused;
 
     private TweenInstance inst = null;
+    public static WaterLevels Instance;
 
-    
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     // public Plane Water;
     
@@ -46,6 +51,7 @@ public class WaterLevels : MonoBehaviour
         else if (isLvl2)
         {
             targetY = 2.5f;
+            dur = 10f;
         }
         else if (isLvl3)
         {
