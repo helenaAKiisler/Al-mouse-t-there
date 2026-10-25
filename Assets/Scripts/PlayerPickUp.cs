@@ -7,9 +7,11 @@ public class PlayerPickUp : MonoBehaviour
     private ObjectGrabbable objectGrabbable; //Keeping track of currently held item
     public float interactRange = 2f;
     public LayerMask interactableLayer;
+    private Collider playerCol;
 
     private void Start()
     {
+        playerCol = GetComponent<Collider>();
     }
 
     private void Update()
@@ -29,6 +31,14 @@ public class PlayerPickUp : MonoBehaviour
         {
             //Currently holding something
             objectGrabbable.Drop();
+            //If it's an attachable
+            if (objectGrabbable.TryGetComponent<ObjectAttachable>(out ObjectAttachable objectAttachable))
+            {
+                if (objectAttachable.canAttach)
+                {
+                    objectAttachable.Attach();
+                }
+            }
             objectGrabbable = null;
         }
     }
@@ -45,7 +55,7 @@ public class PlayerPickUp : MonoBehaviour
             Debug.Log("Hit object: " + hitData.collider.name);
             if (hitData.transform.TryGetComponent(out objectGrabbable))
             {
-                objectGrabbable.Grab(objectHoldPointTransform);
+                objectGrabbable.Grab(objectHoldPointTransform, playerCol);
                 Debug.Log(objectGrabbable);
             }
 
