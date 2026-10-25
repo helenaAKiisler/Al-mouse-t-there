@@ -84,9 +84,12 @@ public class DialogueController : MonoBehaviour
     }
     
     //Quest dialoog?
-    public void ShowCompletedQuestDialogue()
+    public void ShowCompletedQuestDialogue(NPC npc)
     {
-        
+        currentNPC = npc;
+        dialoguePanel.SetActive(true);
+        currentMode = DialogueMode.Dialogue;
+        StartCoroutine(TypeText(questCompletedText));
     }
 
     private void DisplayCurrentPage()
@@ -164,13 +167,13 @@ public class DialogueController : MonoBehaviour
 
     private void OnQuestAccepted()
     {
-        //currentNPC.AcceptQuest();
+        currentNPC.AcceptQuest();
         CloseDialogue();
     }
 
     private void OnQuestDeclined()
     {
-        //currentNPC.DeclineQuest();
+        currentNPC.DeclineQuest();
         CloseDialogue();
     }
     

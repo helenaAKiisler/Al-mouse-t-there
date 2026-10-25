@@ -53,7 +53,7 @@ public class NPC : MonoBehaviour
 
     private void ShowCompletedQuestDialogue()
     {
-        dialogueController.ShowCompletedQuestDialogue();
+        dialogueController.ShowCompletedQuestDialogue(this);
     }
 
     private void StartInteraction()
@@ -69,6 +69,7 @@ public class NPC : MonoBehaviour
     public void AcceptQuest()
     {
         questState = QuestState.QuestStarted;
+        Debug.Log("Quest started");
         
         if (quest != null)
             quest.StartQuest();

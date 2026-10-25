@@ -11,10 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="459e228d-6c46-4227-b533-487d6201c5b6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/NPC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/NPC.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialogue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogue.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Al-mouse-t-there/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Al-mouse-t-there/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerNPCInteractor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerNPCInteractor.cs" afterDir="false" />
@@ -133,7 +130,7 @@
       <workItem from="1792405427538" duration="27418000" />
       <workItem from="1792932053140" duration="9000" />
       <workItem from="1792932152273" duration="2368000" />
-      <workItem from="1792935463816" duration="8660000" />
+      <workItem from="1792935463816" duration="9372000" />
     </task>
     <servers />
   </component>
