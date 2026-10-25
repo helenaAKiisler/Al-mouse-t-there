@@ -45,6 +45,7 @@ public class Boat : MonoBehaviour
             //using slerp for smoothly rotating towards target location
             boatRigidbody.MoveRotation(Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * moveSpeed * rotationSpeed));
             boatRigidbody.MovePosition(transform.position + myMove * (Time.fixedDeltaTime * moveSpeed));
+            
         }
     }
 
