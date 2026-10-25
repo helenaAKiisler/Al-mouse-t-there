@@ -4,41 +4,88 @@ using UnityEngine;
 
 public class WaterLevels : MonoBehaviour
 {
-    private Vector3 moveDir;
-    public Transform waterPlane;
-    private float targetY;
+    // private Vector3 moveDir;
+    // public Transform waterPlane;
+    public float targetY;
+    public float dur = 5f;
 
-    public bool isLvl1 = false;
+    public bool isMove = false;
     public bool isLvl2 = false;
     public bool isLvl3 = false;
     public bool isLvl4 = false;
+    // private var tween = new PositionTween{};
+    public bool isPaused;
+
+    private TweenInstance inst = null;
 
     
 
-    public Plane Water;
+    // public Plane Water;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Water = GetComponent<Plane>();
-        isLvl1 = false;
+        // Water = GetComponent<Plane>();
+        isMove = false;
         isLvl2 = false;
         isLvl3 = false;
         isLvl4 = false;
-        // var tween = new PositionYTween(to = Vector3(transform.position.x));
+        isPaused = false;
+        targetY = 1f;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isMove && inst == null)
+        {
+            inst = moveToLvl(targetY, dur);
+            Debug.Log(targetY);
+        }
+        else if (isLvl2)
+        {
+            targetY = 2.5f;
+        }
+        else if (isLvl3)
+        {
+            targetY = 5f;
+            dur = 7f;
+        }
+        else if (isLvl4)
+        {
+            targetY = 6.5f;
+            dur = 5f;
+        }
+
+        if (transform.position.y < targetY && inst != null &&  inst.isPaused && isMove)
+        {
+            isPaused = false;
+            inst = moveToLvl(targetY, dur);
+            Debug.Log(targetY);
+        }
         
+        if (isPaused)
+        {
+            inst.isPaused = true;
+        }
+        
+
+
     }
 
-    // Vector3 moveToLvl(int lvl)
-    // {
-    //     if (lvl == 1)
-    //     {
-    //         moveDir = new Vector3();
-    //     }
-    // }
+    TweenInstance moveToLvl(float y, float dur = 5)
+    {
+        var tween = new PositionTween
+        {
+            to = new Vector3(transform.position.x, y, transform.position.z),
+            duration = dur,
+            onEnd = (instance) =>
+            {
+                isPaused = true;
+            },
+        };
+        TweenInstance inst = gameObject.AddTween(tween);
+        return inst;
+    }
 }
