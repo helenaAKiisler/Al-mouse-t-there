@@ -822,7 +822,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.28398687, y: 0.013571244, z: -0.004019985, w: 0.9587237}
-  m_LocalPosition: {x: 4.05, y: 2.783, z: -7.91}
+  m_LocalPosition: {x: 3.53, y: 3.15, z: -8.139999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1381,15 +1381,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 306366010702905391, guid: 20f69e638f9471c428f00bcb29b1fde0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.05
+      value: 3.53
       objectReference: {fileID: 0}
     - target: {fileID: 306366010702905391, guid: 20f69e638f9471c428f00bcb29b1fde0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.783
+      value: 1.15
       objectReference: {fileID: 0}
     - target: {fileID: 306366010702905391, guid: 20f69e638f9471c428f00bcb29b1fde0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.91
+      value: -5.14
       objectReference: {fileID: 0}
     - target: {fileID: 306366010702905391, guid: 20f69e638f9471c428f00bcb29b1fde0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1470,8 +1470,8 @@ GameObject:
   - component: {fileID: 760051758}
   - component: {fileID: 760051757}
   - component: {fileID: 760051756}
-  - component: {fileID: 760051755}
   - component: {fileID: 760051759}
+  - component: {fileID: 760051755}
   m_Layer: 0
   m_Name: water
   m_TagString: Untagged
@@ -1573,33 +1573,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1845105494}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &760051759
-Rigidbody:
+--- !u!114 &760051759
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 760051754}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b08bb1c69c21a0340ba9c3cc063c3530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaterLevels
+  targetY: 0
+  dur: 5
+  isMove: 0
+  isLvl2: 0
+  isLvl3: 0
+  isLvl4: 0
+  isPaused: 0
 --- !u!1001 &811447595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2044,7 +2036,7 @@ Transform:
   m_GameObject: {fileID: 1569998719}
   serializedVersion: 2
   m_LocalRotation: {x: 0.28398687, y: 0.013571244, z: -0.004019985, w: 0.9587237}
-  m_LocalPosition: {x: 4.05, y: 2.783, z: -7.91}
+  m_LocalPosition: {x: 3.53, y: 3.15, z: -8.139999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
