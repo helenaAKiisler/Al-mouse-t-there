@@ -8,6 +8,7 @@ public class PlayerPickUp : MonoBehaviour
     public float interactRange = 2f;
     public LayerMask interactableLayer;
     private Collider playerCol;
+    private SewerLid currenSewerLid;
 
     private void Start()
     {
@@ -61,6 +62,15 @@ public class PlayerPickUp : MonoBehaviour
 
 
 
+        }
+    }
+
+    //Reusing R key
+    void OnTalk(InputValue value)
+    {
+        if (currenSewerLid != null && currenSewerLid.hasHandle)
+        {
+            currenSewerLid.OpenDoor();
         }
     }
 
