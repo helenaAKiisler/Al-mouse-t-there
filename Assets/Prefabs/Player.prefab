@@ -1,5 +1,58 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4207259247426808058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2310894285560679741}
+  - component: {fileID: 3841510559314123023}
+  m_Layer: 0
+  m_Name: DockingDetection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2310894285560679741
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4207259247426808058}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 306366010702905391}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3841510559314123023
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4207259247426808058}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7910188659377374847
 GameObject:
   m_ObjectHideFlags: 0
@@ -18,6 +71,7 @@ GameObject:
   - component: {fileID: 5323924413393634581}
   - component: {fileID: 8727742028742936232}
   - component: {fileID: 6337260881698485404}
+  - component: {fileID: 3486127095502991632}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -39,6 +93,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5362878673738537082}
+  - {fileID: 2310894285560679741}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 1.622, z: 0}
 --- !u!33 &3402574690607957185
@@ -113,6 +168,7 @@ MonoBehaviour:
   moveSpeed: 2.5
   rotationSpeed: 5
   movement: {x: 0, y: 0, z: 0}
+  fallForce: 5
   isInBoat: 0
 --- !u!114 &5326369550686683177
 MonoBehaviour:
@@ -247,6 +303,24 @@ MonoBehaviour:
   climbSpeed: 2.5
   movement: {x: 0, y: 0, z: 0}
   isClimbing: 0
+--- !u!114 &3486127095502991632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7910188659377374847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04f654dab05df1541b069d23b3b8abed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerBoatInteraction
+  player: {fileID: 0}
+  boat: {fileID: 0}
+  interactRange: 2
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1 &8964325365263551361
 GameObject:
   m_ObjectHideFlags: 0

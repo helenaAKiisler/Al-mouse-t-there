@@ -3,11 +3,12 @@ using UnityEngine;
 public class ObjectDockable : MonoBehaviour
 {
     
-    private bool HasBoat = false;
+    public bool HasBoat = false;
     
     private GameObject dock;
     public Transform boat;
     public Transform boatLocation;
+    public Transform playerLocation;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,16 +21,36 @@ public class ObjectDockable : MonoBehaviour
     {
         
     }
-
+    
+    public Transform GetBoatLocation(){ return boatLocation; }
+    
     public Boat Mount()
     {
-        if (!HasBoat || boat == null)
+        print("MOUNT FUCNTION");
+        if (!HasBoat)
         {
+            print("Problem");
             return null;
         }
-        Boat boatComponent = dock.GetComponent<Boat>();
+        print("reached");
+        Boat boatComponent = boat.GetComponent<Boat>();
+        print(boatComponent);
         boat.SetParent(null, true);
         HasBoat = false;
         return boatComponent;
+    }
+
+    public void Dock(GameObject boatObject)
+    {
+        boat = boatObject.transform;
+        print("Dock FUCTION");
+        if (!HasBoat)
+        {
+            print("Problem");
+        }
+        boat.SetParent(boatLocation, true);
+        boat.localPosition = Vector3.zero;
+        boat.localRotation = Quaternion.identity;
+        HasBoat = true;
     }
 }

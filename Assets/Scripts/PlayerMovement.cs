@@ -63,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //WASD
         movementInput = value.Get<Vector2>();
+        Debug.Log("Movement input: " + movementInput);
     }
 
     void moveCharacter(Vector3 direction)

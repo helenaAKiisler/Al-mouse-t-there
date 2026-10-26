@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 6503733502749556239}
   m_Layer: 0
   m_Name: DockPoint
-  m_TagString: Untagged
+  m_TagString: Dock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 9207125327354963559}
   m_Layer: 0
   m_Name: MountPoint
-  m_TagString: Untagged
+  m_TagString: Dock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -274,5 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52b02f4dadfbe82498703d40f1f52288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  HasBoat: 0
   boat: {fileID: 0}
   boatLocation: {fileID: 3138491420413695544}
+  playerLocation: {fileID: 5046287095666164847}
