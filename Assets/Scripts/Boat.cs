@@ -37,6 +37,10 @@ public class Boat : MonoBehaviour
     
     private void FixedUpdate()
     {
+        Vector3 pos = transform.position;
+        pos.y = WaterLevels.Instance.transform.position.y;
+        transform.position = pos;
+        
         if (!PlayerMounted)
         {
             if (boatObject.GetComponentInParent<ObjectDockable>() != null)
