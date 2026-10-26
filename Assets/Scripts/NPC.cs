@@ -1,107 +1,157 @@
-
 using TMPro;
 using UnityEngine;
 
-
+[RequireComponent(typeof(NPCMovement))]
 public class NPC : MonoBehaviour
 {
-    [SerializeField] private TMP_Text text;
-    
-    public bool player_detected; //is player close enough to the npc to interact
+    public enum NPCState { Idle, Moving, FollowingPlayer, PerformingAction }
 
+    [SerializeField] private NPCState state = NPCState.Idle;   // visible in the Inspector for debugging
+    public NPCState CurrentState => state;
+    
+    public Transform player;
+    public PlayerPickUp playerPickUp;
     public DialogueController dialogueController;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
-    public Quest quest;
-    public QuestState questState = QuestState.NotMet;
+    [SerializeField] private Transform cockroachModel;
+    [SerializeField] private TMP_Text text;                   
     
-    void Start()
+    public Quest quest;
+    [SerializeField] private string requiredItemId = "quest_item";
+    [TextArea] [SerializeField] private string acceptedText = "Great! Please bring me the item I need.";
+    [TextArea] [SerializeField] private string missingItemText = "I need something from you. Bring it to me!";
+    [TextArea] [SerializeField] private string itemReceivedText = "Thank you! Lead the way, I'm right behind you.";
+
+    private NPCMovement movement;
+    private Quaternion idleRotation;
+    private Quaternion followRotation;
+
+    // Quest state in which the NPC should run to the stairs when the water rises
+    public bool CanReactToWater =>
+        quest.currentState == Quest.QuestState.NotStarted ||
+        quest.currentState == Quest.QuestState.WaitingForAnswer ||
+        quest.currentState == Quest.QuestState.QuestStarted;
+
+    private void Awake()
+    {
+        movement = GetComponent<NPCMovement>();
+        //Rotation of the NPC when idle and following the player
+        idleRotation = Quaternion.Euler(90f, 0f, 9f);
+        followRotation = Quaternion.Euler(90f, 0f, 0f);
+
+        if (player == null)
+        {
+            GameObject p = GameObject.FindGameObjectWithTag("Player");
+            if (p != null) player = p.transform;
+        }
+    }
+
+    private void Start()
     {
         text.gameObject.SetActive(false);
-    }
-    
-    // Update is called once per frame
-    void Update()
-    {
-        
+        SetState(NPCState.Idle);
     }
 
+    private void Update()
+    {
+        if (state == NPCState.FollowingPlayer)
+            movement.Follow(player);
+        else if (state == NPCState.Moving && movement.HasArrived)
+            SetState(NPCState.Idle);
+    }
+    
+    public void SetState(NPCState newState)
+    {
+        state = newState;
+        cockroachModel.localRotation = newState == NPCState.FollowingPlayer ? followRotation : idleRotation;
+    }
+
+    public bool MoveTo(Transform target)
+    {
+        if (target == null) return false;
+        if (!movement.MoveTo(target.position)) return false;
+        SetState(NPCState.Moving);
+        return true;
+    }
+
+    //PlayerInteractor functions
+    public void OnPlayerEnter()
+    {
+        if (!dialogueController.IsOpen && state != NPCState.FollowingPlayer)
+            text.gameObject.SetActive(true);
+    }
+
+    public void OnPlayerExit()
+    {
+        text.gameObject.SetActive(false);
+        dialogueController.CloseDialogue();
+    }
+
+    //NPC interactions
     public void Interact()
     {
-        if (!player_detected)
-        {
-            return;
-        }
-        
+        if (state == NPCState.PerformingAction) return;   // busy with an activity (tunnel, later)
+        if (dialogueController.IsOpen) return;
+
         text.gameObject.SetActive(false);
-        switch (questState)
+        switch (quest.currentState)
         {
-            case QuestState.NotMet:
-                StartInteraction();
+            case Quest.QuestState.NotStarted:
+                dialogueController.StartDialogue(this);
                 break;
-            case QuestState.WaitingForAnswer:
-                ShowReturnDialogue();
+            case Quest.QuestState.WaitingForAnswer:
+                dialogueController.ShowQuestionAgain(this);
                 break;
-            case QuestState.QuestStarted:
-                //quest dialoog?
+            case Quest.QuestState.QuestStarted:
+                if (!TryReceiveItem(playerPickUp))
+                    dialogueController.ShowMessage(this, missingItemText);
                 break;
-            case QuestState.QuestCompleted:
-                ShowCompletedQuestDialogue();
+            case Quest.QuestState.ReadyToFollow:
+                SetState(NPCState.FollowingPlayer);  
+                break;
+            case Quest.QuestState.Completed:
+                dialogueController.ShowCompletedQuestDialogue(this);
                 break;
         }
     }
 
-    private void ShowCompletedQuestDialogue()
+    //Quest
+    public void OfferQuest()
     {
-        dialogueController.ShowCompletedQuestDialogue(this);
+        if (quest.currentState == Quest.QuestState.NotStarted)
+            quest.currentState = Quest.QuestState.WaitingForAnswer;
     }
 
-    private void StartInteraction()
-    {
-        dialogueController.StartDialogue(this);
-    }
-
-    private void ShowReturnDialogue()
-    {
-        dialogueController.ShowQuestionAgain(this);
-    }
-    
     public void AcceptQuest()
     {
-        questState = QuestState.QuestStarted;
-        Debug.Log("Quest started");
-        
-        if (quest != null)
-            quest.StartQuest();
+        quest.currentState = Quest.QuestState.QuestStarted;
+        dialogueController.ShowMessage(this, acceptedText);
     }
 
-    public void DeclineQuest()
+    // npc receiving object(worked at some point)
+    public bool TryReceiveItem(PlayerPickUp giver)
     {
-        questState = QuestState.WaitingForAnswer;
-    }
+        if (quest.currentState != Quest.QuestState.QuestStarted || giver == null) return false;
     
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.name == "Player")
-        {
-            player_detected = true;
-            if (!dialogueController.IsOpen)
-                //If Dialogue has already started then the guide text won't appear
-            {
-                text.gameObject.SetActive(true);
-            }
-            
-        }
+        ObjectGrabbable held = giver.HeldObject;
+        if (held == null ||
+            !held.TryGetComponent(out QuestItem item) ||
+            item.ItemId != requiredItemId)
+            return false;
+    
+        giver.TakeHeldObject();     
+        Destroy(held.gameObject);   
+    
+        quest.currentState = Quest.QuestState.ReadyToFollow;
+        SetState(NPCState.FollowingPlayer);
+        text.gameObject.SetActive(false);
+        dialogueController.ShowMessage(this, itemReceivedText);
+        return true;
     }
 
-    private void OnTriggerExit(Collider other)
+    // used later
+    public void CompleteQuest()
     {
-        if (other.name == "Player")
-        {
-            player_detected = false;
-            text.gameObject.SetActive(false);
-            dialogueController.CloseDialogue();
-        }
-       
+        quest.currentState = Quest.QuestState.Completed;
+        SetState(NPCState.Idle);
     }
 }

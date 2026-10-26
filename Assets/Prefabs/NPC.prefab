@@ -861,6 +861,9 @@ GameObject:
   - component: {fileID: 5006168309535726066}
   - component: {fileID: 3930953231278106589}
   - component: {fileID: 8364758690790037258}
+  - component: {fileID: 2906180274665534228}
+  - component: {fileID: 1045103106495932265}
+  - component: {fileID: 5070866326392953445}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -1006,15 +1009,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ec3f9c468150048986737b5dccb07e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
-  text: {fileID: 20898207940157377}
-  player_detected: 0
+  state: 0
+  player: {fileID: 0}
+  playerPickUp: {fileID: 0}
   dialogueController: {fileID: 1272709159656518442}
+  cockroachModel: {fileID: 1069606168002400242}
+  text: {fileID: 20898207940157377}
   quest:
-    questName: 
-    questDescription: 
-    isStarted: 0
-    isCompleted: 0
-  questState: 0
+    currentState: 0
+  requiredItemId: quest_item
+  acceptedText: Great! Please bring me the item I need.
+  missingItemText: I need something from you. Bring it to me!
+  itemReceivedText: Thank you! Lead the way, I'm right behind you.
+--- !u!195 &2906180274665534228
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041921718285225682}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1045103106495932265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041921718285225682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43efe71568304d80aacb303102ebd951, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCWaterReaction
+  waterLevels: {fileID: 0}
+  stairLevel1: {fileID: 0}
+  stairLevel2: {fileID: 0}
+--- !u!114 &5070866326392953445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041921718285225682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2d9b3ea3ca34944ab81d9dc2645e93e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCMovement
+  followDistance: 2
 --- !u!1 &2715457149621724714
 GameObject:
   m_ObjectHideFlags: 0
@@ -2221,6 +2277,7 @@ MonoBehaviour:
   - dialogueText: Yapayapa1
   - dialogueText: Yapayapa2
   - dialogueText: Yapayapa3
+  choiceText: Would you like to help me?
   returnText: Oh, you're back. Are you ready to help me now?
   questCompletedText: Thank you for your help!
 --- !u!1001 &671801990915090457

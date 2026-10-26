@@ -4,21 +4,33 @@ using UnityEngine.InputSystem;
 public class PlayerPickUp : MonoBehaviour
 {
     [SerializeField] private Transform objectHoldPointTransform; // Where the item will be held
+    [SerializeField] private PlayerNPCInteractor npcInteractor;   // auto-found if empty
+
     private ObjectGrabbable objectGrabbable; //Keeping track of currently held item
     public float interactRange = 2f;
     public LayerMask interactableLayer;
     private Collider playerCol;
     private SewerLid currenSewerLid;
-
+    public ObjectGrabbable HeldObject => objectGrabbable;
+    
     private void Start()
     {
         playerCol = GetComponent<Collider>();
+        if (npcInteractor == null)
+            npcInteractor = GetComponentInParent<PlayerNPCInteractor>();
     }
 
     private void Update()
     {
     }
-
+    
+    public ObjectGrabbable TakeHeldObject()
+    {
+        ObjectGrabbable held = objectGrabbable;
+        objectGrabbable = null;
+        return held;
+    }
+    
     public void OnInteract(InputValue value)
     {
         Debug.Log("Interact button pressed!");
@@ -30,6 +42,9 @@ public class PlayerPickUp : MonoBehaviour
         }
         else
         {
+            //If the nearby NPC wants it, Player hands it over instead of dropping
+            NPC npc = npcInteractor != null ? npcInteractor.currentNpc : null;
+            if (npc != null && npc.TryReceiveItem(this)) return;
             //Currently holding something
             objectGrabbable.Drop();
             //If it's an attachable
@@ -62,6 +77,25 @@ public class PlayerPickUp : MonoBehaviour
 
 
 
+        }
+        //Picking items up repeatedly
+        if (objectGrabbable == null)
+            TryPickUpOverlapping();
+    }
+    
+    private void TryPickUpOverlapping()
+    {
+        Vector3 center = transform.position + transform.forward * 0.5f + Vector3.down * 0.2f;
+        Collider[] hits = Physics.OverlapSphere(center, 0.8f, interactableLayer);
+
+        foreach (Collider hit in hits)
+        {
+            ObjectGrabbable grabbable = hit.GetComponentInParent<ObjectGrabbable>();
+            if (grabbable == null) continue;
+
+            objectGrabbable = grabbable;
+            objectGrabbable.Grab(objectHoldPointTransform, playerCol);
+            return;
         }
     }
 
