@@ -27,6 +27,7 @@ public class NPC : MonoBehaviour
 
     // Quest state in which the NPC should run to the stairs when the water rises
     public bool CanReactToWater =>
+        quest.currentState == Quest.QuestState.NotStarted ||
         quest.currentState == Quest.QuestState.WaitingForAnswer ||
         quest.currentState == Quest.QuestState.QuestStarted;
 
@@ -64,11 +65,12 @@ public class NPC : MonoBehaviour
         cockroachModel.localRotation = newState == NPCState.FollowingPlayer ? followRotation : idleRotation;
     }
 
-    public void MoveTo(Transform target)
+    public bool MoveTo(Transform target)
     {
-        if (target == null) return;
+        if (target == null) return false;
+        if (!movement.MoveTo(target.position)) return false;
         SetState(NPCState.Moving);
-        movement.MoveTo(target.position);
+        return true;
     }
 
     //PlayerInteractor functions
@@ -129,16 +131,16 @@ public class NPC : MonoBehaviour
     public bool TryReceiveItem(PlayerPickUp giver)
     {
         if (quest.currentState != Quest.QuestState.QuestStarted || giver == null) return false;
-
+    
         ObjectGrabbable held = giver.HeldObject;
         if (held == null ||
             !held.TryGetComponent(out QuestItem item) ||
             item.ItemId != requiredItemId)
             return false;
-
+    
         giver.TakeHeldObject();     
         Destroy(held.gameObject);   
-
+    
         quest.currentState = Quest.QuestState.ReadyToFollow;
         SetState(NPCState.FollowingPlayer);
         text.gameObject.SetActive(false);

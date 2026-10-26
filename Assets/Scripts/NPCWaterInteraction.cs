@@ -8,9 +8,8 @@ public class NPCWaterReaction : MonoBehaviour
     [SerializeField] private Transform stairLevel2;
 
     private NPC npc;
-    private bool movedToLevel1;
-    private bool movedToLevel2;
-
+    private int handledLevel; 
+    private int CurrentLevel => waterLevels.isLvl2 ? 2 : waterLevels.isMove ? 1 : 0;
     private void Awake()
     {
         npc = GetComponent<NPC>();
@@ -20,16 +19,14 @@ public class NPCWaterReaction : MonoBehaviour
     {
         if (waterLevels == null || !npc.CanReactToWater) return;
 
-        if (waterLevels.isMove && !movedToLevel1)
-        {
-            movedToLevel1 = true;
-            npc.MoveTo(stairLevel1);
-        }
+        int level = CurrentLevel;
+        if (level <= handledLevel) return;   // nothing new
 
-        if (waterLevels.isLvl2 && !movedToLevel2)
-        {
-            movedToLevel2 = true;
-            npc.MoveTo(stairLevel2);
-        }
+        Transform target = level == 1 ? stairLevel1 : stairLevel2;
+        Debug.Log($"Water level {level}: isMove={waterLevels.isMove}, isLvl2={waterLevels.isLvl2}");
+
+        if (npc.MoveTo(target))
+            handledLevel = level;            
     }
+    
 }

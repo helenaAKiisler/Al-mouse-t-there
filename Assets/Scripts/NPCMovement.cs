@@ -22,10 +22,10 @@ public class NPCMovement : MonoBehaviour
             Debug.LogWarning("NPC is not on a baked NavMesh, it cannot move.", this);
     }
 
-    public void MoveTo(Vector3 position)
+    public bool MoveTo(Vector3 position)
     {
-        if (agent.isOnNavMesh)
-            agent.SetDestination(position);
+        if (!agent.isOnNavMesh) return false;
+        return agent.SetDestination(position);
     }
     
     public void Follow(Transform target)
