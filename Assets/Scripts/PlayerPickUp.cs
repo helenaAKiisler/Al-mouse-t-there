@@ -7,26 +7,12 @@ public class PlayerPickUp : MonoBehaviour
     private ObjectGrabbable objectGrabbable; //Keeping track of currently held item
     public float interactRange = 2f;
     public LayerMask interactableLayer;
+    private Collider playerCol;
+    private SewerLid currenSewerLid;
 
-    [SerializeField] private PlayerNPCInteractor npcInteractor;
-    public ObjectGrabbable HeldObject => objectGrabbable;
-    
-    
-    private void Awake()
-    {
-        if (npcInteractor == null)
-            npcInteractor = GetComponentInParent<PlayerNPCInteractor>();
-    }
-    
-    // Called by the NPC when it takes the item
-    public ObjectGrabbable TakeHeldObject()
-    {
-        ObjectGrabbable held = objectGrabbable;
-        objectGrabbable = null;
-        return held;
-    }
     private void Start()
     {
+        playerCol = GetComponent<Collider>();
     }
 
     private void Update()
@@ -41,15 +27,21 @@ public class PlayerPickUp : MonoBehaviour
         {
             //If the player isn't holding an object, they can try grab
             TryPickUp();
-            return;
         }
-        //Currently holding something that the npc wants
-        NPC npc = npcInteractor != null ? npcInteractor.currentNpc : null;
-        if (npc != null && npc.TryReceiveItem(this)) return;
-        //Currently holding something
-        objectGrabbable.Drop();
-        objectGrabbable = null;
-    
+        else
+        {
+            //Currently holding something
+            objectGrabbable.Drop();
+            //If it's an attachable
+            if (objectGrabbable.TryGetComponent<ObjectAttachable>(out ObjectAttachable objectAttachable))
+            {
+                if (objectAttachable.canAttach)
+                {
+                    objectAttachable.Attach();
+                }
+            }
+            objectGrabbable = null;
+        }
     }
 
     void TryPickUp() 
@@ -64,12 +56,21 @@ public class PlayerPickUp : MonoBehaviour
             Debug.Log("Hit object: " + hitData.collider.name);
             if (hitData.transform.TryGetComponent(out objectGrabbable))
             {
-                objectGrabbable.Grab(objectHoldPointTransform);
+                objectGrabbable.Grab(objectHoldPointTransform, playerCol);
                 Debug.Log(objectGrabbable);
             }
 
 
 
+        }
+    }
+
+    //Reusing R key
+    void OnTalk(InputValue value)
+    {
+        if (currenSewerLid != null && currenSewerLid.hasHandle)
+        {
+            currenSewerLid.OpenDoor();
         }
     }
 
