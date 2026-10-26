@@ -1,22 +1,17 @@
 using UnityEngine;
+
 [System.Serializable]
 public class Quest
 {
-    public string questName;
-    public string questDescription;
 
-    public bool isStarted;
-    public bool isCompleted;
-
-    public void StartQuest()
+    public enum QuestState
     {
-        isStarted = true;
-        Debug.Log("Quest Started");
+        NotStarted,
+        WaitingForAnswer,
+        QuestStarted,
+        ReadyToFollow,
+        Completed,
     }
 
-    public void CompleteQuest()
-    {
-        isCompleted = true;
-        Debug.Log("Quest Completed");
-    }
+    public QuestState currentState = QuestState.NotStarted;
 }

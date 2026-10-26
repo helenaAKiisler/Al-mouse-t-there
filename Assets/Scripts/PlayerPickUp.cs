@@ -8,6 +8,23 @@ public class PlayerPickUp : MonoBehaviour
     public float interactRange = 2f;
     public LayerMask interactableLayer;
 
+    [SerializeField] private PlayerNPCInteractor npcInteractor;
+    public ObjectGrabbable HeldObject => objectGrabbable;
+    
+    
+    private void Awake()
+    {
+        if (npcInteractor == null)
+            npcInteractor = GetComponentInParent<PlayerNPCInteractor>();
+    }
+    
+    // Called by the NPC when it takes the item
+    public ObjectGrabbable TakeHeldObject()
+    {
+        ObjectGrabbable held = objectGrabbable;
+        objectGrabbable = null;
+        return held;
+    }
     private void Start()
     {
     }
@@ -24,13 +41,15 @@ public class PlayerPickUp : MonoBehaviour
         {
             //If the player isn't holding an object, they can try grab
             TryPickUp();
+            return;
         }
-        else
-        {
-            //Currently holding something
-            objectGrabbable.Drop();
-            objectGrabbable = null;
-        }
+        //Currently holding something that the npc wants
+        NPC npc = npcInteractor != null ? npcInteractor.currentNpc : null;
+        if (npc != null && npc.TryReceiveItem(this)) return;
+        //Currently holding something
+        objectGrabbable.Drop();
+        objectGrabbable = null;
+    
     }
 
     void TryPickUp() 

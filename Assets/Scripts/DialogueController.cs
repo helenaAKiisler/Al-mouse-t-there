@@ -1,74 +1,57 @@
-using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
-
 
 public class DialogueController : MonoBehaviour
 {
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
-    
-    
+
     [Header("Dialogue buttons")]
     [SerializeField] private Button nextButton;
     [SerializeField] private Button prevButton;
     [SerializeField] private Button skipButton;
-    
+
     [Header("Choice buttons")]
     [SerializeField] private Button questButton;
     [SerializeField] private Button quitButton;
-    
-    
+
     [SerializeField] private Dialogue[] dialoguePages;
-    
-    [TextArea]
-    [SerializeField] private string returnText =
-        "Oh, you're back. Are you ready to help me now?";
-    
-    [TextArea]
-    [SerializeField] private string questCompletedText =
-        "Thank you for your help!";
-    
+
+    [TextArea] [SerializeField] private string choiceText = "Would you like to help me?";
+    [TextArea] [SerializeField] private string returnText = "Oh, you're back. Are you ready to help me now?";
+    [TextArea] [SerializeField] private string questCompletedText = "Thank you for your help!";
+
+    private enum DialogueMode { Dialogue, QuestChoice }
+
+    private DialogueMode currentMode;
     private NPC currentNPC;
     private int currentPage;
-    private bool isTyping = false;
+    private bool isTyping;
     private Coroutine typingCoroutine;
-    private float typingSpeed = 0.03f;
+    private const float TypingSpeed = 0.03f;
+
     public bool IsOpen => dialoguePanel.activeSelf;
 
-    private enum DialogueMode
-    {
-        Dialogue,
-        QuestChoice
-    }
-    
-    private DialogueMode currentMode;
-// Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
         dialoguePanel.SetActive(false);
-        
+
         nextButton.onClick.AddListener(OnNextPressed);
         prevButton.onClick.AddListener(OnPrevPressed);
-        skipButton.onClick.AddListener(OnSkipPressed);
-        
+        skipButton.onClick.AddListener(OpenQuestChoice);
+
         questButton.onClick.AddListener(OnQuestAccepted);
-        quitButton.onClick.AddListener(OnQuestDeclined);
+        quitButton.onClick.AddListener(CloseDialogue);   // declining just closes, the NPC is already "WaitingForAnswer"
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
+    
     public void StartDialogue(NPC npc)
     {
         currentNPC = npc;
         currentPage = 0;
+        currentMode = DialogueMode.Dialogue;
         dialoguePanel.SetActive(true);
         ShowDialogueButtons();
         DisplayCurrentPage();
@@ -77,56 +60,52 @@ public class DialogueController : MonoBehaviour
     public void ShowQuestionAgain(NPC npc)
     {
         currentNPC = npc;
-        dialoguePanel.SetActive(true);
         currentMode = DialogueMode.QuestChoice;
-        ShowChoiceButtons();
-        StartCoroutine(TypeText(returnText));
-    }
-    
-    //Quest dialoog?
-    public void ShowCompletedQuestDialogue(NPC npc)
-    {
-        currentNPC = npc;
         dialoguePanel.SetActive(true);
-        currentMode = DialogueMode.Dialogue;
-        StartCoroutine(TypeText(questCompletedText));
+        ShowChoiceButtons();
+        StartTyping(returnText);
     }
 
-    private void DisplayCurrentPage()
-    {
-        if (typingCoroutine != null)
-        {
-            StopCoroutine(typingCoroutine);
-        }
-        typingCoroutine = StartCoroutine(TypeText(
-            dialoguePages[currentPage].dialogueText));
-    }
     
+    public void ShowMessage(NPC npc, string message, float closeAfter = 2.5f)
+    {
+        currentNPC = npc;
+        currentMode = DialogueMode.Dialogue;
+        dialoguePanel.SetActive(true);
+        HideAllButtons();
+
+        StopTyping();
+        typingCoroutine = StartCoroutine(MessageRoutine(message, closeAfter));
+    }
+
+    public void ShowCompletedQuestDialogue(NPC npc)
+    {
+        ShowMessage(npc, questCompletedText);
+    }
+
+    public void CloseDialogue()
+    {
+        StopTyping();
+        dialoguePanel.SetActive(false);
+    }
 
     
     private void OnNextPressed()
     {
-        //If the dialogue text is still appearing, then pressing >> will make the whole text appear all at once
+        // Still typing: show the whole page at once
         if (isTyping)
         {
-            StopCoroutine(typingCoroutine);
-
-            dialogueText.text = 
-                dialoguePages[currentPage].dialogueText;
-            
-            isTyping = false;
-
+            StopTyping();
+            dialogueText.text = dialoguePages[currentPage].dialogueText;
             return;
         }
-        
-        //If there are no more dialogue text pages to show then current pages doesn't increase
+
         if (currentPage >= dialoguePages.Length - 1)
         {
-            currentNPC.questState = QuestState.WaitingForAnswer;
             OpenQuestChoice();
             return;
         }
-        
+
         currentPage++;
         DisplayCurrentPage();
     }
@@ -136,108 +115,101 @@ public class DialogueController : MonoBehaviour
         if (currentMode == DialogueMode.QuestChoice)
         {
             currentMode = DialogueMode.Dialogue;
-
             ShowDialogueButtons();
-            
             currentPage = dialoguePages.Length - 1;
-            
             DisplayCurrentPage();
-
             return;
         }
 
-        if (currentPage == 0)
-            return;
-        
+        if (currentPage == 0) return;
+
         currentPage--;
         DisplayCurrentPage();
-        
-    }
-
-    private void OpenQuestChoice()
-    {
-        currentMode = DialogueMode.QuestChoice;
-        ShowChoiceButtons();
-        
-        typingCoroutine = StartCoroutine(
-            TypeText("Would you like to help me?"));
-        
-
     }
 
     private void OnQuestAccepted()
     {
+        CloseDialogue();            
         currentNPC.AcceptQuest();
+    }
+
+    private void OpenQuestChoice()
+    {
+        currentNPC.OfferQuest();   
+
+        currentMode = DialogueMode.QuestChoice;
+        ShowChoiceButtons();
+        StartTyping(choiceText);
+    }
+    
+    private void DisplayCurrentPage()
+    {
+        StartTyping(dialoguePages[currentPage].dialogueText);
+    }
+
+    private void StartTyping(string line)
+    {
+        StopTyping();
+        typingCoroutine = StartCoroutine(TypeText(line));
+    }
+
+    private void StopTyping()
+    {
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+            typingCoroutine = null;
+        }
+        isTyping = false;
+    }
+
+    private IEnumerator MessageRoutine(string message, float closeAfter)
+    {
+        yield return TypeText(message);
+        yield return new WaitForSeconds(closeAfter);
         CloseDialogue();
     }
 
-    private void OnQuestDeclined()
+    private IEnumerator TypeText(string line)
     {
-        currentNPC.DeclineQuest();
-        CloseDialogue();
+        isTyping = true;
+        dialogueText.text = "";
+
+        foreach (char c in line)
+        {
+            dialogueText.text += c;
+            bool sentenceEnd = c == '.' || c == '!' || c == '?';
+            yield return new WaitForSeconds(sentenceEnd ? 0.5f : TypingSpeed);
+        }
+
+        isTyping = false;
     }
-    
+
+  
     private void ShowDialogueButtons()
     {
         nextButton.gameObject.SetActive(true);
         prevButton.gameObject.SetActive(true);
         skipButton.gameObject.SetActive(true);
-
         questButton.gameObject.SetActive(false);
         quitButton.gameObject.SetActive(false);
     }
-    
+
     private void ShowChoiceButtons()
     {
         nextButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
-
         prevButton.gameObject.SetActive(true);
-
         questButton.gameObject.SetActive(true);
         quitButton.gameObject.SetActive(true);
     }
-    
+
     private void HideAllButtons()
     {
         nextButton.gameObject.SetActive(false);
         prevButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
-
         questButton.gameObject.SetActive(false);
         quitButton.gameObject.SetActive(false);
     }
-    public void CloseDialogue()
-    {
-        dialoguePanel.SetActive(false);
-    }
-    
-    private void OnSkipPressed()
-    {
-        OpenQuestChoice();
-    }   
-    //Function for typing text gradually
-     private IEnumerator TypeText(string text)
-     {
-         
-         isTyping = true;
-         dialogueText.text = "";
-         
-         foreach (char c in text)
-         {
-             //Text appearing by character, pauses after sentences ending
-             dialogueText.text += c;
-             if (c == '.' || c == '!' || c == '?')
-             {
-                 yield return new WaitForSeconds(0.5f);
-             }
-             else
-             {
-                 yield return new WaitForSeconds(typingSpeed);
-             }
-         }
- 
-         isTyping = false;
-         
-     }
 }
