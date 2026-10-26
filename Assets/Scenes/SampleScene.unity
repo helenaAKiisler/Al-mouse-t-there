@@ -2451,6 +2451,19 @@ PrefabInstance:
       propertyPath: waterLevels
       value: 
       objectReference: {fileID: 760051759}
+    - target: {fileID: 1272709159656518442, guid: f89a04a90211f404380d93161989d286, type: 3}
+      propertyPath: dialoguePages.Array.data[0].dialogueText
+      value: 'Hi there! Nice to see another soul down in the darkness. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272709159656518442, guid: f89a04a90211f404380d93161989d286, type: 3}
+      propertyPath: dialoguePages.Array.data[1].dialogueText
+      value: You know I actually might need your help, stranger.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272709159656518442, guid: f89a04a90211f404380d93161989d286, type: 3}
+      propertyPath: dialoguePages.Array.data[2].dialogueText
+      value: 'My fishing line just broke and I need another string to fix it. Maybe
+        you can find one over there on the other side of the cave for me? '
+      objectReference: {fileID: 0}
     - target: {fileID: 2041921718285225682, guid: f89a04a90211f404380d93161989d286, type: 3}
       propertyPath: m_Name
       value: NPC
