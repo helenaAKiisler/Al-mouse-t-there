@@ -16,6 +16,7 @@ public class Boat : MonoBehaviour
     private PlayerInput boatInput;
     public GameObject boatObject;
     public  Transform boatTransform;
+    public GameObject player;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,7 +27,7 @@ public class Boat : MonoBehaviour
         boatTransform = boatObject.transform;
         
         boatInput.enabled = false;
-        
+        MountBoat(player);
     }
 
     // Update is called once per frame
