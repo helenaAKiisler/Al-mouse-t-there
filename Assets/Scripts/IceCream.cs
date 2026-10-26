@@ -1,0 +1,38 @@
+using UnityEngine;
+
+public class IceCream : MonoBehaviour
+{
+    [SerializeField] private Transform objectAttachPoint;
+    private ObjectAttachable objectAttachable;
+    public bool isOpen;
+    public bool hasHandle;
+
+    private void Start()
+    {
+        isOpen = false;
+        hasHandle = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out ObjectAttachable attachable)) 
+        {
+            attachable.SetTargetAttachPoint(objectAttachPoint);
+            attachable.SetCurrentStick(this);
+            attachable.canAttach = true;
+
+            
+            
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent(out ObjectAttachable attachable))
+        {
+            attachable.canAttach = false;
+            attachable.SetTargetAttachPoint(null);
+
+        }
+    }
+}
