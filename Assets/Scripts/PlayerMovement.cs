@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.MovePosition(transform.position + myMove * Time.fixedDeltaTime * moveSpeed);
                 //For animation
                 //Input magnitude - key press up to 1.0, when released, down to 0
-                animator.SetFloat("Speed", moveMagnitude * moveSpeed * 20);
+                animator.SetFloat("Speed", moveMagnitude * moveSpeed * 10);
 
             }
             else
