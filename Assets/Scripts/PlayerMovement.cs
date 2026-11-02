@@ -8,12 +8,13 @@ public class PlayerMovement : MonoBehaviour
 {
     private Vector2 movementInput;
     //[SerializeField]
-    public float moveSpeed = 2f;
+    public float moveSpeed = 5f;
     public float rotationSpeed = 5f;
     private Rigidbody rb;
     public Vector3 movement;
     public float fallForce = 5.0f;
     public bool isInBoat;
+    private Animator animator;
 
 
 
@@ -22,7 +23,9 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         isInBoat = false;
+        animator = GetComponentInChildren<Animator>();
     }
+   
 
     // Update is called once per frame - ui, key presses general timers
     void Update()
@@ -44,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
             //Calculating movement direction
             Vector3 myMove = new Vector3(movementInput.x, 0f,
             movementInput.y);
-
+            float moveMagnitude = movementInput.magnitude;
             //When moving...
             //Checking movementInput since that's  what gets updated by input system
             if (movementInput != Vector2.zero)
@@ -54,6 +57,14 @@ public class PlayerMovement : MonoBehaviour
                 //using slerp for smoothly rotating towards target location
                 rb.MoveRotation(Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * moveSpeed * rotationSpeed));
                 rb.MovePosition(transform.position + myMove * Time.fixedDeltaTime * moveSpeed);
+                //For animation
+                //Input magnitude - key press up to 1.0, when released, down to 0
+                animator.SetFloat("Speed", moveMagnitude * moveSpeed * 20);
+
+            }
+            else
+            {
+                animator.SetFloat("Speed", moveMagnitude * moveSpeed);
             }
         }
         else { return; }
