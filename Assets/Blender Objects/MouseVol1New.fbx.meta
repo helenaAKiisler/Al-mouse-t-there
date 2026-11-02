@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0301c1a10054b704fa578f0b6884068f
+guid: f53eee435a4909947aa568dce2707b07
 ModelImporter:
   serializedVersion: 24300
   internalIDToNameTable: []
@@ -145,7 +145,7 @@ ModelImporter:
       takeName: Armature|MouseRun
       internalID: -6491928227460985002
       firstFrame: 0
-      lastFrame: 69
+      lastFrame: 70
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
