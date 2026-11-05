@@ -7,8 +7,8 @@ public class Boat : MonoBehaviour
     private PlayerMovement playerMovement;
     private Rigidbody boatRigidbody;
     private Vector2 movementInput;
-    public float moveSpeed = 2f;
-    public float rotationSpeed = 5f;
+    public float moveSpeed = 5f;
+    public float rotationSpeed = 0.5f;
     public Transform playerTransform;
     private GameObject playerObject;
     
@@ -38,9 +38,9 @@ public class Boat : MonoBehaviour
     
     private void FixedUpdate()
     {
-        Vector3 pos = transform.position;
+        Vector3 pos = boatRigidbody.position;
         pos.y = WaterLevels.Instance.transform.position.y;
-        transform.position = pos;
+        boatRigidbody.MovePosition(pos); //resets position to the water y-level
         
         if (!PlayerMounted)
         {
@@ -71,14 +71,14 @@ public class Boat : MonoBehaviour
         print("still locking player");
     }
 
-    void OnMove(InputValue value)
+    void OnDrive(InputValue value)
     {
         //WASD
         movementInput = value.Get<Vector2>();
         // Debug.Log("Movement input: " + movementInput);
     }
 
-    void moveCharacter(Vector3 direction)
+    void moveBoat(Vector3 direction)
     {
         boatRigidbody.linearVelocity = direction * moveSpeed * Time.fixedDeltaTime;
     }
@@ -97,7 +97,8 @@ public class Boat : MonoBehaviour
         }
 
         // Disable normal player movement
-        playerMovement.enabled = false;
+        //playerMovement.enabled = false;
+        playerMovement.isInBoat = true;
         
 
         // Attach player to the boat
@@ -117,7 +118,6 @@ public class Boat : MonoBehaviour
         
         // Enable boat movement
         PlayerMounted = true;
-        boatTransform.localScale = new Vector3(1,0.2f,2);
 
         print("Player Mounted: " + PlayerMounted);
     }
@@ -153,6 +153,5 @@ public class Boat : MonoBehaviour
         playerMovement.enabled = true;
         
         PlayerMounted = false;
-        boatTransform.localScale = new Vector3(1,0.2f,1);
     }
 }
