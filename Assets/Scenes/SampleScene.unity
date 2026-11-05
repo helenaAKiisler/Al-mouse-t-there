@@ -1476,6 +1476,10 @@ PrefabInstance:
       propertyPath: rotationSpeed
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7428661569917897314, guid: fdf89daceaccfcb4d9b0315b032f9dc2, type: 3}
+      propertyPath: waterPlaneLevel
+      value: 
+      objectReference: {fileID: 760051758}
     - target: {fileID: 7617295213373326406, guid: fdf89daceaccfcb4d9b0315b032f9dc2, type: 3}
       propertyPath: m_Name
       value: Boat

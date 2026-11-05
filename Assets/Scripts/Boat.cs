@@ -16,6 +16,7 @@ public class Boat : MonoBehaviour
     private PlayerInput boatInput;
     public GameObject boatObject;
     public  Transform boatTransform;
+    public Transform waterPlaneLevel;
     public GameObject player;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -39,7 +40,8 @@ public class Boat : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 pos = boatRigidbody.position;
-        pos.y = WaterLevels.Instance.transform.position.y;
+        pos.y = waterPlaneLevel.position.y;
+        Debug.Log(pos.y);
         boatRigidbody.MovePosition(pos); //resets position to the water y-level
         
         if (!PlayerMounted)
