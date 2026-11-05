@@ -99,7 +99,7 @@ public class Boat : MonoBehaviour
         // Disable normal player movement
         //playerMovement.enabled = false;
         playerMovement.isInBoat = true;
-        
+
 
         // Attach player to the boat
         playerTransform.SetParent(playerSlot, false);
@@ -142,6 +142,7 @@ public class Boat : MonoBehaviour
         //playerObject = player;
         
         boatInput.enabled = false;
+        playerMovement.isInBoat = false;
         
         playerTransform.SetParent(null, false);
         playerTransform.position = PBI.dock.playerLocation.position;
