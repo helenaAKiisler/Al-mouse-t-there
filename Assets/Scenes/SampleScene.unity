@@ -1472,6 +1472,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdf89daceaccfcb4d9b0315b032f9dc2, type: 3}
+--- !u!4 &624170862 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2042070398154057133, guid: fdf89daceaccfcb4d9b0315b032f9dc2, type: 3}
+  m_PrefabInstance: {fileID: 624170861}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &667075612
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2112,7 +2117,7 @@ GameObject:
   - component: {fileID: 1128370347}
   - component: {fileID: 1128370346}
   m_Layer: 0
-  m_Name: CinemachineCamera (1)
+  m_Name: BoatCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2136,7 +2141,7 @@ MonoBehaviour:
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  FollowOffset: {x: 0, y: 0, z: -10}
+  FollowOffset: {x: 0, y: 6.12, z: -10}
 --- !u!114 &1128370347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2150,16 +2155,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
   Priority:
-    Enabled: 0
+    Enabled: 1
     m_Value: 0
   OutputChannel: 1
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 0}
+    TrackingTarget: {fileID: 624170862}
     LookAtTarget: {fileID: 0}
-    CustomLookAtTarget: 0
+    CustomLookAtTarget: 1
   Lens:
     FieldOfView: 56.3
     OrthographicSize: 5
@@ -2189,7 +2194,7 @@ Transform:
   m_GameObject: {fileID: 1128370345}
   serializedVersion: 2
   m_LocalRotation: {x: 0.23316917, y: -0.091251135, z: 0.021981766, w: 0.9678958}
-  m_LocalPosition: {x: 6.1963663, y: 5.938976, z: -14.886644}
+  m_LocalPosition: {x: 4.5, y: 6.33, z: -15.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2606,7 +2611,7 @@ GameObject:
   - component: {fileID: 1569998721}
   - component: {fileID: 1569998720}
   m_Layer: 0
-  m_Name: CinemachineCamera
+  m_Name: PlayerCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2644,8 +2649,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
   Priority:
-    Enabled: 0
-    m_Value: 0
+    Enabled: 1
+    m_Value: 1
   OutputChannel: 1
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
