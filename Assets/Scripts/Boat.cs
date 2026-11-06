@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 public class Boat : MonoBehaviour
@@ -13,6 +14,7 @@ public class Boat : MonoBehaviour
     private GameObject playerObject;
     
     [SerializeField] public Transform playerSlot;
+    [SerializeField] public Transform npcSlot;
     private PlayerInput boatInput;
     public GameObject boatObject;
     public  Transform boatTransform;
@@ -40,14 +42,22 @@ public class Boat : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 pos = boatRigidbody.position;
-        pos.y = waterPlaneLevel.position.y;
-        Debug.Log(pos.y);
+
+        if (WaterLevels.Instance != null)
+        {
+            pos.y = WaterLevels.Instance.transform.position.y;
+        } else if (waterPlaneLevel != null)
+        {
+            pos.y = waterPlaneLevel.position.y;
+        }
+
         boatRigidbody.MovePosition(pos); //resets position to the water y-level
         
         if (!PlayerMounted)
         {
             if (boatObject.GetComponentInParent<ObjectDockable>() != null)
             {
+                //Boat's position gets set to dockable object's transform - doesnt move with waterlevel
                 boatRigidbody.position = boatObject.GetComponentInParent<ObjectDockable>().GetBoatLocation().position;
             }
             return;
@@ -135,6 +145,36 @@ public class Boat : MonoBehaviour
         PBI.dock.Dock(boatObject);
         DisMountBoat(PBI);
         
+    }
+
+    public void MountNPC(GameObject NPC)
+    {
+        if (NPC != null)
+        {
+            //Disable npc-movement
+            NPCMovement npcMoveInput = NPC.GetComponent<NPCMovement>();
+            NavMeshAgent navAgent = NPC.GetComponent<NavMeshAgent>();
+            //SafetyCheck
+            if (npcMoveInput != null)
+            {
+                npcMoveInput.enabled = false;
+            }
+            if (navAgent != null)
+            {
+                navAgent.enabled = false;
+            }
+
+            //Attach NPC to boat
+            Transform npcTransform = NPC.transform;
+            if (npcSlot != null)
+            {
+                npcTransform.SetParent(npcSlot, false);
+                npcTransform.localPosition = Vector3.zero;
+                npcTransform.localRotation = Quaternion.identity;
+                Debug.Log("NPC Mounted!!");
+            }
+            
+        }
     }
     
     public void DisMountBoat(PlayerBoatInteraction PBI)

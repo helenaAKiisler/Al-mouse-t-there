@@ -170,8 +170,10 @@ MonoBehaviour:
   rotationSpeed: 5
   playerTransform: {fileID: 0}
   playerSlot: {fileID: 6623614710090226564}
+  npcSlot: {fileID: 677739850993746094}
   boatObject: {fileID: 0}
   boatTransform: {fileID: 0}
+  waterPlaneLevel: {fileID: 0}
   player: {fileID: 0}
 --- !u!54 &7002045495089570532
 Rigidbody:
@@ -240,15 +242,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d3ea1eb81f7cb1f419a5e21e1a1dad93, type: 3}
       propertyPath: m_LocalScale.x
-      value: 75
+      value: 74
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d3ea1eb81f7cb1f419a5e21e1a1dad93, type: 3}
       propertyPath: m_LocalScale.y
-      value: 75
+      value: 74
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d3ea1eb81f7cb1f419a5e21e1a1dad93, type: 3}
       propertyPath: m_LocalScale.z
-      value: 75
+      value: 74
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d3ea1eb81f7cb1f419a5e21e1a1dad93, type: 3}
       propertyPath: m_LocalPosition.x
