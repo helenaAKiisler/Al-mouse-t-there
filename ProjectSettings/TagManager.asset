@@ -8,6 +8,7 @@ TagManager:
   - Stairs
   - Ladder
   - Dock
+  - Boat
   layers:
   - Default
   - TransparentFX
