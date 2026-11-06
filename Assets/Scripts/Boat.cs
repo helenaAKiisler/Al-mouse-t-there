@@ -20,7 +20,8 @@ public class Boat : MonoBehaviour
     public  Transform boatTransform;
     public Transform waterPlaneLevel;
     public GameObject player;
-    
+
+    public bool NPCOnBoat;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -171,6 +172,7 @@ public class Boat : MonoBehaviour
                 npcTransform.SetParent(npcSlot, false);
                 npcTransform.localPosition = Vector3.zero;
                 npcTransform.localRotation = Quaternion.identity;
+                NPCOnBoat = true;
                 Debug.Log("NPC Mounted!!");
             }
             
