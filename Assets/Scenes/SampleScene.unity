@@ -119,6 +119,32 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &71108966 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2041921718285225682, guid: f89a04a90211f404380d93161989d286, type: 3}
+  m_PrefabInstance: {fileID: 2108248794}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &71108976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71108966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f30a82e2c363ff840b3b70c3f1e7b269, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCBoatInteraction
+  NPC: {fileID: 0}
+  boat: {fileID: 0}
+  dock: {fileID: 0}
+  onBoat: 0
+  interactRange: 2
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  seesDock: 0
 --- !u!1 &87246943
 GameObject:
   m_ObjectHideFlags: 0
@@ -912,7 +938,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.23193052, y: -0.04720773, z: 0.032546613, w: 0.9710409}
+  m_LocalRotation: {x: 0.24022236, y: -0.036828533, z: -0.011532281, w: 0.96995056}
   m_LocalPosition: {x: 4.5, y: 6.33, z: -15.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1645,6 +1671,10 @@ PrefabInstance:
       propertyPath: playerCam
       value: 
       objectReference: {fileID: 1569998721}
+    - target: {fileID: 7051558726043013904, guid: 20f69e638f9471c428f00bcb29b1fde0, type: 3}
+      propertyPath: moveSpeed
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7910188659377374847, guid: 20f69e638f9471c428f00bcb29b1fde0, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2219,13 +2249,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128370345}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.23193051, y: -0.047207728, z: 0.03254661, w: 0.97104084}
+  m_LocalRotation: {x: 0.24022236, y: -0.036828533, z: -0.011532281, w: 0.96995056}
   m_LocalPosition: {x: 4.5, y: 6.33, z: -15.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 26.969, y: -4.929, z: 2.657}
+  m_LocalEulerAnglesHint: {x: 27.72, y: -4.989, z: -2.594}
 --- !u!114 &1128370349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3267,7 +3297,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2041921718285225682, guid: f89a04a90211f404380d93161989d286, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 71108976}
   m_SourcePrefab: {fileID: 100100000, guid: f89a04a90211f404380d93161989d286, type: 3}
 --- !u!1 &2134587819
 GameObject:
@@ -3396,6 +3429,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 406933127790739284, guid: 980e9a0c30914974b884d7a1c70a672f, type: 3}
+      propertyPath: waterPlaneLevel
+      value: 
+      objectReference: {fileID: 760051758}
     - target: {fileID: 3378114662316025439, guid: 980e9a0c30914974b884d7a1c70a672f, type: 3}
       propertyPath: m_Name
       value: DockingLadder

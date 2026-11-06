@@ -6,6 +6,7 @@ public class ObjectDockable : MonoBehaviour
     public bool HasBoat = false;
     
     private GameObject dock;
+    public Transform waterPlaneLevel;
     public Transform boat;
     public Transform boatLocation;
     public Transform playerLocation;
@@ -22,7 +23,22 @@ public class ObjectDockable : MonoBehaviour
         
     }
     
-    public Transform GetBoatLocation(){ return boatLocation; }
+    public Transform GetBoatLocation()
+    {
+        Vector3 level = boatLocation.position;
+        if (WaterLevels.Instance != null)
+        {
+
+            level.y = WaterLevels.Instance.transform.position.y;
+
+        } else if (waterPlaneLevel != null)
+        {
+            level.y = waterPlaneLevel.transform.position.y;
+        }
+        boatLocation.position = level;
+
+        return boatLocation; 
+    }
     
     public Boat Mount()
     {

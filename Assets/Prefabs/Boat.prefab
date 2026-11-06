@@ -170,8 +170,10 @@ MonoBehaviour:
   rotationSpeed: 5
   playerTransform: {fileID: 0}
   playerSlot: {fileID: 6623614710090226564}
+  npcSlot: {fileID: 677739850993746094}
   boatObject: {fileID: 0}
   boatTransform: {fileID: 0}
+  waterPlaneLevel: {fileID: 0}
   player: {fileID: 0}
 --- !u!54 &7002045495089570532
 Rigidbody:
