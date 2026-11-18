@@ -8904,6 +8904,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1022844843661446131, guid: 20f69e638f9471c428f00bcb29b1fde0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1d15e6215f83ef248a97651994d343fb, type: 2}
+    - target: {fileID: 2288920137226727203, guid: 20f69e638f9471c428f00bcb29b1fde0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1d15e6215f83ef248a97651994d343fb, type: 2}
+    - target: {fileID: 2829710217619448092, guid: 20f69e638f9471c428f00bcb29b1fde0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1d15e6215f83ef248a97651994d343fb, type: 2}
     - target: {fileID: 2984531672849210607, guid: 20f69e638f9471c428f00bcb29b1fde0, type: 3}
       propertyPath: boatCam
       value: 
@@ -8916,6 +8928,26 @@ PrefabInstance:
       propertyPath: boatCamLeft
       value: 
       objectReference: {fileID: 1255074322}
+    - target: {fileID: 3551767264080490362, guid: 20f69e638f9471c428f00bcb29b1fde0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1d15e6215f83ef248a97651994d343fb, type: 2}
+    - target: {fileID: 4349218658724048720, guid: 20f69e638f9471c428f00bcb29b1fde0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1d15e6215f83ef248a97651994d343fb, type: 2}
+    - target: {fileID: 4684102795572623986, guid: 20f69e638f9471c428f00bcb29b1fde0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1d15e6215f83ef248a97651994d343fb, type: 2}
+    - target: {fileID: 5420330168777937088, guid: 20f69e638f9471c428f00bcb29b1fde0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1d15e6215f83ef248a97651994d343fb, type: 2}
+    - target: {fileID: 6895000150609113844, guid: 20f69e638f9471c428f00bcb29b1fde0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1d15e6215f83ef248a97651994d343fb, type: 2}
     - target: {fileID: 7051558726043013904, guid: 20f69e638f9471c428f00bcb29b1fde0, type: 3}
       propertyPath: fallForce
       value: 40
@@ -8924,6 +8956,10 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7832409867487531032, guid: 20f69e638f9471c428f00bcb29b1fde0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1d15e6215f83ef248a97651994d343fb, type: 2}
     - target: {fileID: 7910188659377374847, guid: 20f69e638f9471c428f00bcb29b1fde0, type: 3}
       propertyPath: m_Name
       value: Player
@@ -10890,7 +10926,7 @@ PrefabInstance:
     - target: {fileID: 4005440228469304760, guid: 7d5e4e4ef7a501f4cb61c8de43cbb80e, type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 23800000, guid: 2753c27bc3cfebd44aee5d38dc9466f4, type: 2}
     - target: {fileID: 6647853890820496092, guid: 7d5e4e4ef7a501f4cb61c8de43cbb80e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -37.8842
