@@ -1,0 +1,10 @@
+Water System - Fab edition v1.0.3
+One importable .unitypackage; all files are under Assets/WaterSystem.
+Import into a Unity 6.3+ URP project with Render Graph enabled, then run
+Water > Set Up Active URP Renderer. Importing the package does not replace
+your project's Graphics, Quality, or layer settings.
+Includes 8 water presets, 2 master graphs, 34 subgraphs, 11 textures,
+the required shader support, and 2 showcase scenes.
+See USER_GUIDE.md in the Documentation folder. License details are on the Fab listing.
+The full project and source repository remain on GitHub:
+https://github.com/SakanaLazy/Water_Material_Experimentation
