@@ -65263,10 +65263,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2496610915389279474, guid: 79c07f5374a1a6f4188f60817300f8a6, type: 3}
-      propertyPath: m_Name
-      value: firstBlock2 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3021474218045101640, guid: 79c07f5374a1a6f4188f60817300f8a6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.922304
@@ -65306,6 +65302,10 @@ PrefabInstance:
     - target: {fileID: 3021474218045101640, guid: 79c07f5374a1a6f4188f60817300f8a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2496610915389279474, guid: 79c07f5374a1a6f4188f60817300f8a6, type: 3}
+      propertyPath: m_Name
+      value: firstBlock2 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -65753,9 +65753,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2852938630783082355, guid: b2a008f4ebde2804287f17c891c387c1, type: 3}
-      propertyPath: m_Name
-      value: big_tunnel2
+    - target: {fileID: 3232595234774894025, guid: b2a008f4ebde2804287f17c891c387c1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232595234774894025, guid: b2a008f4ebde2804287f17c891c387c1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232595234774894025, guid: b2a008f4ebde2804287f17c891c387c1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3232595234774894025, guid: b2a008f4ebde2804287f17c891c387c1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -65764,6 +65772,10 @@ PrefabInstance:
     - target: {fileID: 3232595234774894025, guid: b2a008f4ebde2804287f17c891c387c1, type: 3}
       propertyPath: m_LocalPosition.y
       value: -68
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232595234774894025, guid: b2a008f4ebde2804287f17c891c387c1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 3232595234774894025, guid: b2a008f4ebde2804287f17c891c387c1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -65796,6 +65808,14 @@ PrefabInstance:
     - target: {fileID: 3232595234774894025, guid: b2a008f4ebde2804287f17c891c387c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232595234774894025, guid: b2a008f4ebde2804287f17c891c387c1, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852938630783082355, guid: b2a008f4ebde2804287f17c891c387c1, type: 3}
+      propertyPath: m_Name
+      value: big_tunnel2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -65838,7 +65858,7 @@ PrefabInstance:
     - target: {fileID: 811686956685490792, guid: bc7b6aa488284be42b5226e4b03a9c5c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: a7c573a41800aeb4087a3c5ea66b24cd, type: 2}
+      objectReference: {fileID: 2100000, guid: b270f207d760f224e9223fe3f05a9322, type: 2}
     - target: {fileID: 2834930338309805939, guid: bc7b6aa488284be42b5226e4b03a9c5c, type: 3}
       propertyPath: m_LocalScale.x
       value: 4.733796
