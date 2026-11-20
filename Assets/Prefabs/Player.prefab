@@ -418,7 +418,36 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f53eee435a4909947aa568dce2707b07, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8150736913557046603}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f53eee435a4909947aa568dce2707b07, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 138567057315130948}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f53eee435a4909947aa568dce2707b07, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6850974536605960335}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f53eee435a4909947aa568dce2707b07, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7443555161154923561}
   m_SourcePrefab: {fileID: 100100000, guid: f53eee435a4909947aa568dce2707b07, type: 3}
+--- !u!4 &720633744954127454 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8052136908738482957, guid: f53eee435a4909947aa568dce2707b07, type: 3}
+  m_PrefabInstance: {fileID: 7331538353961903955}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4484169595269181902 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -2628937572144032099, guid: f53eee435a4909947aa568dce2707b07, type: 3}
+  m_PrefabInstance: {fileID: 7331538353961903955}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5961530089182231439 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3964653448352193756, guid: f53eee435a4909947aa568dce2707b07, type: 3}
+  m_PrefabInstance: {fileID: 7331538353961903955}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6882829389290946908 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -5027596541544405489, guid: f53eee435a4909947aa568dce2707b07, type: 3}
+  m_PrefabInstance: {fileID: 7331538353961903955}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7076388892461514936 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f53eee435a4909947aa568dce2707b07, type: 3}
@@ -451,3 +480,190 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &138567057315130948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7601991062080461314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aa2b9bccfefda549bd1cf67fd922ad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: EZhex1991.EZSoftBone::EZhex1991.EZSoftBone.EZSoftBone
+  m_RootBones:
+  - {fileID: 4484169595269181902}
+  m_EndBones:
+  - {fileID: 5961530089182231439}
+  m_Material: {fileID: 0}
+  m_StartDepth: 0
+  m_SiblingConstraints: 0
+  m_ClosedSiblings: 0
+  m_SiblingRotationConstraints: 1
+  m_LengthUnification: 0
+  m_CollisionLayers:
+    serializedVersion: 2
+    m_Bits: 1
+  m_ExtraColliders: []
+  m_Radius: 0
+  m_RadiusCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_DeltaTimeMode: 0
+  m_ConstantDeltaTime: 0.03
+  m_SleepThreshold: 0.005
+  m_GravityAligner: {fileID: 0}
+  m_Gravity: {x: 0, y: 0, z: 0}
+  m_ForceModule: {fileID: 0}
+  m_ForceScale: 1
+  m_SimulateSpace: {fileID: 0}
+--- !u!114 &6850974536605960335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7601991062080461314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aa2b9bccfefda549bd1cf67fd922ad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: EZhex1991.EZSoftBone::EZhex1991.EZSoftBone.EZSoftBone
+  m_RootBones:
+  - {fileID: 720633744954127454}
+  m_EndBones:
+  - {fileID: 6882829389290946908}
+  m_Material: {fileID: 11400000, guid: de02dc109a47b7d44ae07f285ee318e4, type: 2}
+  m_StartDepth: 0
+  m_SiblingConstraints: 0
+  m_ClosedSiblings: 0
+  m_SiblingRotationConstraints: 1
+  m_LengthUnification: 0
+  m_CollisionLayers:
+    serializedVersion: 2
+    m_Bits: 1
+  m_ExtraColliders: []
+  m_Radius: 0
+  m_RadiusCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_DeltaTimeMode: 0
+  m_ConstantDeltaTime: 0.03
+  m_SleepThreshold: 0.005
+  m_GravityAligner: {fileID: 0}
+  m_Gravity: {x: 0, y: 0, z: 0}
+  m_ForceModule: {fileID: 0}
+  m_ForceScale: 1
+  m_SimulateSpace: {fileID: 0}
+--- !u!114 &7443555161154923561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7601991062080461314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aa2b9bccfefda549bd1cf67fd922ad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: EZhex1991.EZSoftBone::EZhex1991.EZSoftBone.EZSoftBone
+  m_RootBones:
+  - {fileID: 8105293031630032428}
+  m_EndBones:
+  - {fileID: 7759372343683537428}
+  m_Material: {fileID: 11400000, guid: de02dc109a47b7d44ae07f285ee318e4, type: 2}
+  m_StartDepth: 0
+  m_SiblingConstraints: 0
+  m_ClosedSiblings: 0
+  m_SiblingRotationConstraints: 1
+  m_LengthUnification: 0
+  m_CollisionLayers:
+    serializedVersion: 2
+    m_Bits: 1
+  m_ExtraColliders: []
+  m_Radius: 0
+  m_RadiusCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_DeltaTimeMode: 0
+  m_ConstantDeltaTime: 0.03
+  m_SleepThreshold: 0.005
+  m_GravityAligner: {fileID: 0}
+  m_Gravity: {x: 0, y: 0, z: 0}
+  m_ForceModule: {fileID: 0}
+  m_ForceScale: 1
+  m_SimulateSpace: {fileID: 0}
+--- !u!4 &7759372343683537428 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8210045349718229689, guid: f53eee435a4909947aa568dce2707b07, type: 3}
+  m_PrefabInstance: {fileID: 7331538353961903955}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8105293031630032428 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -7654691820805494401, guid: f53eee435a4909947aa568dce2707b07, type: 3}
+  m_PrefabInstance: {fileID: 7331538353961903955}
+  m_PrefabAsset: {fileID: 0}

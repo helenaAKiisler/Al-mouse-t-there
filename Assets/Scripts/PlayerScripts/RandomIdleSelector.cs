@@ -2,8 +2,35 @@ using UnityEngine;
 
 public class RandomIdleSelector : StateMachineBehaviour
 {
+    private int lastLoopCount = 0;
     // Fires automatically whenever the Animator enters this state
+    //stateInfo - contains timing data about the running clip
+    // layerIndex - which layer of the naimator is running
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        lastLoopCount = 0;
+        RandomIdle(animator);
+    }
+
+    //Fires whenever the Animator stays in this state
+    public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        int currentLoopCount = (int)stateInfo.normalizedTime;
+
+        //If a loop completed
+        // comparing full int loops and not percentages of loops completed
+        if ( currentLoopCount > lastLoopCount)
+        {
+            //Updating last loop count to new loop count
+            lastLoopCount = currentLoopCount;
+
+            //New idle variant for next loop
+            RandomIdle(animator);
+
+        }
+    }
+
+    private void RandomIdle(Animator animator)
     {
         //Random choice between main idle and 2 rare ones
         // main - til 70%
@@ -22,11 +49,5 @@ public class RandomIdleSelector : StateMachineBehaviour
         {
             animator.SetFloat("IdleVariant", 2f);
         }
-    }
-
-    //Fires whenever the Animator stays in this state
-    public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        
     }
 }
