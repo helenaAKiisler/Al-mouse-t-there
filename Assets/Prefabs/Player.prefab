@@ -411,13 +411,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MouseVol1New
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: f53eee435a4909947aa568dce2707b07, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f53eee435a4909947aa568dce2707b07, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8150736913557046603}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f53eee435a4909947aa568dce2707b07, type: 3}
       insertIndex: -1
       addedObject: {fileID: 138567057315130948}
@@ -427,6 +425,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f53eee435a4909947aa568dce2707b07, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7443555161154923561}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f53eee435a4909947aa568dce2707b07, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3587292834302872404}
   m_SourcePrefab: {fileID: 100100000, guid: f53eee435a4909947aa568dce2707b07, type: 3}
 --- !u!4 &720633744954127454 stripped
 Transform:
@@ -458,28 +459,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f53eee435a4909947aa568dce2707b07, type: 3}
   m_PrefabInstance: {fileID: 7331538353961903955}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &8150736913557046603
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7601991062080461314}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 603122bb8181c4a4cb03e8b9a9cb2695, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &138567057315130948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,9 +531,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: EZhex1991.EZSoftBone::EZhex1991.EZSoftBone.EZSoftBone
   m_RootBones:
-  - {fileID: 720633744954127454}
+  - {fileID: 8105293031630032428}
   m_EndBones:
-  - {fileID: 6882829389290946908}
+  - {fileID: 7759372343683537428}
   m_Material: {fileID: 11400000, guid: de02dc109a47b7d44ae07f285ee318e4, type: 2}
   m_StartDepth: 0
   m_SiblingConstraints: 0
@@ -611,9 +590,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: EZhex1991.EZSoftBone::EZhex1991.EZSoftBone.EZSoftBone
   m_RootBones:
-  - {fileID: 8105293031630032428}
+  - {fileID: 720633744954127454}
   m_EndBones:
-  - {fileID: 7759372343683537428}
+  - {fileID: 6882829389290946908}
   m_Material: {fileID: 11400000, guid: de02dc109a47b7d44ae07f285ee318e4, type: 2}
   m_StartDepth: 0
   m_SiblingConstraints: 0
@@ -657,6 +636,28 @@ MonoBehaviour:
   m_ForceModule: {fileID: 0}
   m_ForceScale: 1
   m_SimulateSpace: {fileID: 0}
+--- !u!95 &3587292834302872404
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7601991062080461314}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4ba1e937458cd3c479a6eb5c42dc98a0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &7759372343683537428 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8210045349718229689, guid: f53eee435a4909947aa568dce2707b07, type: 3}
