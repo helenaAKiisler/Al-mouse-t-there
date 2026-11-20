@@ -9,11 +9,12 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movementInput;
     //[SerializeField]
     public float moveSpeed = 5f;
-    public float rotationSpeed = 5f;
+    public float rotationSpeed = 7f;
     private Rigidbody rb;
     public Vector3 movement;
     public float fallForce = 5.0f;
     public bool isInBoat;
+
     private Animator animator;
 
 
@@ -35,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     //FixedUpdate for physics and movement
     private void FixedUpdate()
     {
+
         //If player is climbing, no moving
         PlayerClimbing player = GetComponent<PlayerClimbing>();
         if (player.isClimbing)
@@ -56,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
                 Quaternion targetRotation = Quaternion.LookRotation(myMove);
                 //Separate rotation and movement
                 //using slerp for smoothly rotating towards target location
-                rb.MoveRotation(Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * moveSpeed * rotationSpeed));
+                rb.MoveRotation(Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * rotationSpeed));
                 rb.MovePosition(transform.position + myMove * Time.fixedDeltaTime * moveSpeed);
                 
                 //For animation
@@ -67,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 animator.SetFloat("Speed", moveMagnitude * moveSpeed);
+
             }
         }
         else { return; }

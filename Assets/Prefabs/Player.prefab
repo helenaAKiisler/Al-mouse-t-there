@@ -314,6 +314,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SwitchCam
   playerCam: {fileID: 0}
   boatCam: {fileID: 0}
+  boatCamLeft: {fileID: 0}
+  isPoopTunnel: 0
 --- !u!1 &8964325365263551361
 GameObject:
   m_ObjectHideFlags: 0
