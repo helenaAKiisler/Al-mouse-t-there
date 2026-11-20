@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
@@ -21,11 +22,18 @@ public class HUD : MonoBehaviour
     {
         
     }
-    private void gameEnd(bool isVictory)
+    public void gameEnd(bool isVictory)
     {
+        Time.timeScale = 0;
         GameWinPanel.SetActive(true);
         GameEndText.text = isVictory ? "Victory" : "Game Over";
         NextLevelButton.interactable = isVictory;
         RestartButton.interactable = !isVictory;
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
