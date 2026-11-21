@@ -140,8 +140,8 @@ Material:
     - _UseNormalMap: 0
     - _UseOpacityMap: 0
     - _UseRoughnessMap: 0
-    - _Wind_Intensity: 0.021
-    - _Wind_Speed: 0.05
+    - _Wind_Intensity: 0.042
+    - _Wind_Speed: 0.12
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
