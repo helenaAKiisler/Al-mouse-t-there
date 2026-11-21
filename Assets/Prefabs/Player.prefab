@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 5
-  rotationSpeed: 5
+  rotationSpeed: 3
   movement: {x: 0, y: 0, z: 0}
   fallForce: 5
   isInBoat: 0
@@ -428,10 +428,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f53eee435a4909947aa568dce2707b07, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3587292834302872404}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f53eee435a4909947aa568dce2707b07, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7894758288071837466}
   m_SourcePrefab: {fileID: 100100000, guid: f53eee435a4909947aa568dce2707b07, type: 3}
 --- !u!4 &720633744954127454 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8052136908738482957, guid: f53eee435a4909947aa568dce2707b07, type: 3}
+  m_PrefabInstance: {fileID: 7331538353961903955}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1011232579597049835 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7761467859970177208, guid: f53eee435a4909947aa568dce2707b07, type: 3}
   m_PrefabInstance: {fileID: 7331538353961903955}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &4484169595269181902 stripped
@@ -658,6 +666,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7894758288071837466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7601991062080461314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08293665e30e5ed488904ffd7536dc91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BodyRotation
+  spineBone: {fileID: 1011232579597049835}
+  playerRb: {fileID: 1807313048372623739}
+  maxLeanAngle: 30
+  leanSmoothening: 30
 --- !u!4 &7759372343683537428 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8210045349718229689, guid: f53eee435a4909947aa568dce2707b07, type: 3}
