@@ -20,6 +20,7 @@ public class LoseCondition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("LOSE CONDITION RUNNING");
         if (gameOver) return;
         float waterY = waterLevel.transform.position.y;
         Debug.Log(

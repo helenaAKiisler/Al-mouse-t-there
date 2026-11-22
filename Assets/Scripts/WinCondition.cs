@@ -15,6 +15,7 @@ public class WinCondition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("WIN CONDITION RUNNING");
         if (gameOver) return;
         Debug.Log("Quest state: " + npc.quest.currentState);
         if (npc.quest.currentState == Quest.QuestState.Completed)

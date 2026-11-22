@@ -12,23 +12,13 @@
   <component name="ChangeListManager">
     <list default="true" id="459e228d-6c46-4227-b533-487d6201c5b6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Al-mouse-t-there/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Al-mouse-t-there/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/NPC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/NPC.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Valve 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Valve 1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/icecream3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/icecream3.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/HUD.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/HUD.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IceCream.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/IceCream.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/LoseCondition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LoseCondition.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/NPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/NPC.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ObjectAttachable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ObjectAttachable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ObjectGrabbable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ObjectGrabbable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerBoatInteraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerBoatInteraction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerPickUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerPickUp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SewerLid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SewerLid.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/HUD.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/HUD.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/WinCondition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WinCondition.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +135,7 @@
       <workItem from="1792932152273" duration="2368000" />
       <workItem from="1792935463816" duration="9372000" />
       <workItem from="1795185978528" duration="13493000" />
-      <workItem from="1795280034232" duration="18997000" />
+      <workItem from="1795280034232" duration="23210000" />
     </task>
     <servers />
   </component>

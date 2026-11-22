@@ -16,6 +16,7 @@ public class HUD : MonoBehaviour
     void Start()
     {
         //gameObject.SetActive(true);
+        GameWinPanel.SetActive(false);
         dockText.SetActive(false);
         interactText.SetActive(false);
         
@@ -31,6 +32,7 @@ public class HUD : MonoBehaviour
     public void gameEnd(bool isVictory)
     {
         Time.timeScale = 0;
+        gameObject.SetActive(true);
         GameWinPanel.SetActive(true);
         GameEndText.text = isVictory ? "Victory" : "Game Over";
         NextLevelButton.interactable = isVictory;

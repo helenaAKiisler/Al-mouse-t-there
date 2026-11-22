@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [RequireComponent(typeof(NPCMovement))]
 public class NPC : MonoBehaviour
@@ -57,6 +58,10 @@ public class NPC : MonoBehaviour
             movement.Follow(player);
         else if (state == NPCState.Moving && movement.HasArrived)
             SetState(NPCState.Idle);
+        else if (state == NPCState.PerformingAction && quest.currentState == Quest.QuestState.Completed)
+        {
+            Debug.Log("WIN!!");
+        }
     }
     
     public void SetState(NPCState newState)
@@ -108,9 +113,9 @@ public class NPC : MonoBehaviour
             case Quest.QuestState.ReadyToFollow:
                 SetState(NPCState.FollowingPlayer);  
                 break;
-            case Quest.QuestState.Completed:
-                dialogueController.ShowCompletedQuestDialogue(this);
-                break;
+            // case Quest.QuestState.Completed:
+            //     dialogueController.ShowCompletedQuestDialogue(this);
+            //     break;
         }
     }
 
@@ -151,6 +156,7 @@ public class NPC : MonoBehaviour
     // used later
     public void CompleteQuest()
     {
+        Debug.Log("COMPLETE QUEST CALLED");
         quest.currentState = Quest.QuestState.Completed;
         SetState(NPCState.Idle);
     }
