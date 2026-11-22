@@ -5,6 +5,7 @@ using UnityEngine;
 public class SewerLid : MonoBehaviour
 {
     [SerializeField] private Transform objectAttachPoint;
+    //[SerializeField] private HUD hud;
     private ObjectAttachable objectAttachable;
     public bool isOpen;
     public bool hasHandle;
@@ -21,13 +22,18 @@ public class SewerLid : MonoBehaviour
     {
         if (other.TryGetComponent(out ObjectAttachable attachable)) 
         {
-            attachable.SetTargetAttachPoint(objectAttachPoint);
-            attachable.SetCurrentSewerLid(this);
-            attachable.canAttach = true;
-
+            if (!hasHandle)
+            {
+                attachable.SetTargetAttachPoint(objectAttachPoint);
+                attachable.SetCurrentSewerLid(this);
+                attachable.canAttach = true;
+            }
+            
             if (hasHandle) 
             {
-                OpenDoor();
+                 
+                 OpenDoor(); 
+                 
             }
             
         }
@@ -39,7 +45,7 @@ public class SewerLid : MonoBehaviour
         {
             attachable.canAttach = false;
             attachable.SetTargetAttachPoint(null);
-
+            // hud.OnInteractEnd();
         }
     }
 

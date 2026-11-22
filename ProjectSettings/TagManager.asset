@@ -9,6 +9,7 @@ TagManager:
   - Ladder
   - Dock
   - Boat
+  - PlayerHead
   layers:
   - Default
   - TransparentFX

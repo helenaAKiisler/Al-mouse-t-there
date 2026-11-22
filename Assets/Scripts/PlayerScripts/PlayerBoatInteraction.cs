@@ -7,7 +7,7 @@ public class PlayerBoatInteraction : MonoBehaviour
     private ObjectDockable objectDockable;
     public Boat boat;
     public ObjectDockable dock;
-    private GameObject dockObject;
+    [SerializeField] private HUD hud;
     
     public bool onBoat = false;
 
@@ -67,6 +67,7 @@ public class PlayerBoatInteraction : MonoBehaviour
             dock = collision.GetComponentInParent<ObjectDockable>();
             print("Dock entered");
             
+            hud.OnDockInteraction();
         }
     }
 
@@ -76,6 +77,7 @@ public class PlayerBoatInteraction : MonoBehaviour
         {
             seesDock = false;
             print("Dock exited");
+            hud.OnDockEndInteraction();
         }
     }
 

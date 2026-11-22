@@ -1,3 +1,4 @@
+using System;
 using Tweens;
 using Tweens.Core;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class Poop : MonoBehaviour
 {
     [SerializeField] private Transform poop;
+    public NPC npc;
     private Boat boat;
     private void OnTriggerEnter(Collider other)
     {
@@ -13,15 +15,16 @@ public class Poop : MonoBehaviour
 
             if (boat != null && boat.NPCOnBoat)
             {
-                //idk roach talking
+                npc.SetState(NPC.NPCState.PerformingAction);
                 eatingPoop();
+                
             }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        
+      
     }
 
 
@@ -36,6 +39,7 @@ public class Poop : MonoBehaviour
             {
                 //runs right when it reaches 0 scale!
                 Destroy(gameObject);
+                npc.CompleteQuest();
             },
         };
 
