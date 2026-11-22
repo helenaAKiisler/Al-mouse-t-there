@@ -16820,6 +16820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCream
   objectAttachPoint: {fileID: 414004481}
+  woodenBridgeSoundClip: {fileID: 8300000, guid: af90e1c3fb2b3f549b2f8f36c4b2c6af, type: 3}
   isOpen: 0
   hasHandle: 0
 --- !u!1001 &326053746
@@ -29280,7 +29281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5888733026520990617, guid: fdf89daceaccfcb4d9b0315b032f9dc2, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6365857979669432789, guid: fdf89daceaccfcb4d9b0315b032f9dc2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -53999,6 +54000,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3159798782264367959, guid: db65366ea9e0c834e8a97e67f6316b5a, type: 3}
   m_PrefabInstance: {fileID: 772488768}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1417524236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1417524238}
+  - component: {fileID: 1417524237}
+  m_Layer: 0
+  m_Name: SoundFXManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1417524237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417524236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b53385cfb2344b9650201ca0752ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  soundFXObject: {fileID: 7337861682671842741, guid: c8fb21c5b1bc65e4bb8ce5517a117c26, type: 3}
+--- !u!4 &1417524238
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417524236}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1417871280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -127923,6 +127969,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7445008915565495980, guid: bc7b6aa488284be42b5226e4b03a9c5c, type: 3}
+      propertyPath: openLidSoundClip
+      value: 
+      objectReference: {fileID: 8300000, guid: af84746a8b52c4842951c415a2e41752, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -130887,6 +130937,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 330585546}
+  - {fileID: 1417524238}
   - {fileID: 9191659669405016782}
   - {fileID: 410087041}
   - {fileID: 832575519}

@@ -5,6 +5,7 @@ using UnityEngine;
 public class SewerLid : MonoBehaviour
 {
     [SerializeField] private Transform objectAttachPoint;
+    [SerializeField] private AudioClip openLidSoundClip;
     //[SerializeField] private HUD hud;
     private ObjectAttachable objectAttachable;
     public bool isOpen;
@@ -59,6 +60,8 @@ public class SewerLid : MonoBehaviour
         isOpen = true;
         //Starting coroutine
         StartCoroutine(RotateHingeRoutine());
+        //And play sound
+        SoundFXManager.instance.PlaySoundFXClip(openLidSoundClip, transform, 1f);
     }
 
 
@@ -69,7 +72,7 @@ public class SewerLid : MonoBehaviour
         Quaternion endRotate = startRotate * Quaternion.Euler(0f, 0f, -90f); //should swing 90 degrees
 
         float timeElapsed = 0f;
-        float duration = 2f; //takes 1 second to swing open
+        float duration = 4.5f; //takes 4.5 second to swing open
 
         //Loop runs across frames
         while (timeElapsed < duration) 
