@@ -12,6 +12,7 @@ public class PlayerPickUp : MonoBehaviour
     private Collider playerCol;
     private SewerLid currenSewerLid;
     public ObjectGrabbable HeldObject => objectGrabbable;
+    // [SerializeField] private HUD hud;
     
     private void Start()
     {

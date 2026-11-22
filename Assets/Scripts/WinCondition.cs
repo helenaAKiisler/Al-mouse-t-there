@@ -16,8 +16,10 @@ public class WinCondition : MonoBehaviour
     void Update()
     {
         if (gameOver) return;
+        Debug.Log("Quest state: " + npc.quest.currentState);
         if (npc.quest.currentState == Quest.QuestState.Completed)
         {
+            Debug.Log("WIN");
             gameOver = true;
             hud.gameEnd(true);
         }

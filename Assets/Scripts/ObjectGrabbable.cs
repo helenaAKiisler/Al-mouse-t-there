@@ -8,11 +8,20 @@ public class ObjectGrabbable : MonoBehaviour
     private Collider objectCollider;
     private Collider playerCollider;
 
+    private bool playerInteractable=false;
+    [SerializeField] private HUD hud;
+    public HUD Hud => hud;
+
     private void Awake()
     {   
         //grab the rigidbody reference
         objectRigidbody = GetComponent<Rigidbody>();
         objectCollider = GetComponent<Collider>();
+    }
+
+    private void Update()
+    {
+        
     }
     public void Grab(Transform objectHoldPointTransform, Collider playerCol) 
     {
@@ -26,6 +35,7 @@ public class ObjectGrabbable : MonoBehaviour
         {
             Physics.IgnoreCollision(objectCollider, playerCollider, true);
         }
+        hud.OnInteractEnd();
     }
 
     public void Drop()
@@ -48,6 +58,24 @@ public class ObjectGrabbable : MonoBehaviour
             //For smoothening the object's movement while holding between these 2 positions
             Vector3 newPos = Vector3.Lerp(transform.position, objectHoldPointTransform.position, Time.deltaTime * lerpSpeed);
             objectRigidbody.MovePosition(newPos);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInteractable = true;
+            hud.OnInteract();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInteractable = false;
+            hud.OnInteractEnd();
         }
     }
 }

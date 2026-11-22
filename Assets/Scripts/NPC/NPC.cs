@@ -13,7 +13,7 @@ public class NPC : MonoBehaviour
     public PlayerPickUp playerPickUp;
     public DialogueController dialogueController;
     [SerializeField] private Transform cockroachModel;
-    [SerializeField] private TMP_Text text;                   
+    [SerializeField] private GameObject text;                   
     
     public Quest quest;
     [SerializeField] private string requiredItemId = "quest_item";

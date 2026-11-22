@@ -1,0 +1,337 @@
+fileFormatVersion: 2
+guid: 0119678c11aa60d4eb3e21ae15091f19
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7567303905383683289
+    second: Text_buttons_0
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Text_buttons_0
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 1613
+        width: 1611
+        height: 415
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d412d30fc6740960800000000000000
+      internalID: 7567303905383683289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Text_buttons_6
+      rect:
+        serializedVersion: 2
+        x: 2435
+        y: 1615
+        width: 1080
+        height: 417
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5540fb81428646647a6d488987844a93
+      internalID: 1830319398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Text_buttons_13
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 1218
+        width: 806
+        height: 274
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6d91db1f67923440bfe8d50f1013075
+      internalID: 1241973338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Text_buttons_17
+      rect:
+        serializedVersion: 2
+        x: 1351
+        y: 1216
+        width: 806
+        height: 276
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 696a0c180b8e9f444b2099ac8ae76b6b
+      internalID: -1254719534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Text_buttons_23
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 672
+        width: 1076
+        height: 274
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d84967c2c72330e4cbb462036eca078c
+      internalID: 2100147311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Text_buttons_25
+      rect:
+        serializedVersion: 2
+        x: 1619
+        y: 674
+        width: 1081
+        height: 273
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28f18b17985d61540bb5c383d18da65e
+      internalID: 1259385222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Text_buttons_33
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 131
+        width: 539
+        height: 271
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 355d5f74b4c11d94cbf0a90203030bed
+      internalID: -383468160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Text_buttons_36
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 134
+        width: 542
+        height: 267
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f3628bd41f7180419ebabacc569d7c9
+      internalID: -714954147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c511e0ddfd70f87478f425105086768f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Text_buttons_0: 7567303905383683289
+      Text_buttons_1: 206438516
+      Text_buttons_10: -1607152400
+      Text_buttons_11: -959722658
+      Text_buttons_12: -522622090
+      Text_buttons_13: 1241973338
+      Text_buttons_14: 1068820712
+      Text_buttons_15: 706014219
+      Text_buttons_16: -236371377
+      Text_buttons_17: -1254719534
+      Text_buttons_18: 1567634234
+      Text_buttons_19: -656534973
+      Text_buttons_2: 1296696189
+      Text_buttons_20: 825331592
+      Text_buttons_21: 552288332
+      Text_buttons_22: -1145153010
+      Text_buttons_23: 2100147311
+      Text_buttons_24: 1517268407
+      Text_buttons_25: 1259385222
+      Text_buttons_26: -1766955146
+      Text_buttons_27: -711763828
+      Text_buttons_28: 890026390
+      Text_buttons_29: 660423984
+      Text_buttons_3: -1416547266
+      Text_buttons_30: 475753034
+      Text_buttons_31: 703898179
+      Text_buttons_32: -1566710602
+      Text_buttons_33: -383468160
+      Text_buttons_34: -1409011458
+      Text_buttons_35: -600059584
+      Text_buttons_36: -714954147
+      Text_buttons_37: -775243324
+      Text_buttons_38: -551014639
+      Text_buttons_4: -1208084425
+      Text_buttons_5: 87240391
+      Text_buttons_6: 1830319398
+      Text_buttons_7: 984009049
+      Text_buttons_8: 62766214
+      Text_buttons_9: -1812922545
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

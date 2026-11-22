@@ -7,10 +7,32 @@ public class ObjectAttachable : ObjectGrabbable
     public Rigidbody body;
     public SewerLid currentSewerLid;
     public IceCream currectStick;
-
+    private bool showingHud = false;
     private void Start()
     {
         body = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        if (canAttach)
+        {
+            Debug.Log("CAN ATTACH");
+        }
+
+        if (canAttach && !showingHud)
+        {
+            Debug.Log("SHOWING HUD");
+            Hud.OnInteract();
+            showingHud = true;
+        }
+        else if (!canAttach && showingHud)
+        {
+            Debug.Log("HIDING HUD");
+            Hud.OnInteractEnd();
+            showingHud = false;
+        }
+        
     }
 
     //Attach point given to us by sewer lid
@@ -55,6 +77,10 @@ public class ObjectAttachable : ObjectGrabbable
                 WaterLevels.Instance.isLvl2 = true;
                 WaterLevels.Instance.isMove = true;
             }
+
+            canAttach = false;
+            showingHud = false;
+            Hud.OnInteractEnd();
         }
     }
 }

@@ -21,8 +21,13 @@ public class LoseCondition : MonoBehaviour
     void Update()
     {
         if (gameOver) return;
-        
         float waterY = waterLevel.transform.position.y;
+        Debug.Log(
+            "Head: " + headPoint.position.y +
+            " Water: " + waterY
+        );
+        
+        
         //if water has reached the player --> player has fallen into the water
         if (headPoint.position.y <= waterY)
         {

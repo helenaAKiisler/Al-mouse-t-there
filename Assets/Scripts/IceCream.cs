@@ -6,6 +6,7 @@ public class IceCream : MonoBehaviour
     private ObjectAttachable objectAttachable;
     public bool isOpen;
     public bool hasHandle;
+    // [SerializeField] private HUD hud;
 
     private void Start()
     {
@@ -20,8 +21,9 @@ public class IceCream : MonoBehaviour
             attachable.SetTargetAttachPoint(objectAttachPoint);
             attachable.SetCurrentStick(this);
             attachable.canAttach = true;
+            Debug.Log("SET canAttach TRUE");
 
-            
+            // hud.OnInteract();
             
         }
     }
@@ -32,6 +34,8 @@ public class IceCream : MonoBehaviour
         {
             attachable.canAttach = false;
             attachable.SetTargetAttachPoint(null);
+            Debug.Log("SET canAttach FALSE");
+            // hud.OnInteractEnd();
 
         }
     }
