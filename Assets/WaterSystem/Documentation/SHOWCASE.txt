@@ -1,0 +1,9 @@
+Water System showcase scenes
+After importing the asset package into a Unity 6.3+ URP project, choose
+Water > Set Up Active URP Renderer. Render Graph must be enabled.
+Open Assets/WaterSystem/Scenes/SCN_WaterShowcase_Planes.unity or
+Assets/WaterSystem/Scenes/SCN_WaterShowcase_Volumes.unity.
+In Play mode: 0 overview, 1-4 individual styles, right-drag orbit, scroll zoom.
+Closed water meshes use the configured water-volume layer. Camera outside only.
+See USER_GUIDE.md in this Documentation folder for setup and controls.
+Full Unity project: https://github.com/SakanaLazy/Water_Material_Experimentation
