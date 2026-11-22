@@ -19,7 +19,7 @@ public class WaterLevels : MonoBehaviour
 
     private TweenInstance inst = null;
     public static WaterLevels Instance;
-
+    [SerializeField] private HUD hud;
     private void Awake()
     {
         Instance = this;
@@ -68,7 +68,7 @@ public class WaterLevels : MonoBehaviour
         {
             isPaused = false;
             inst = moveToLvl(targetY, dur);
-            Debug.Log(targetY);
+            //Debug.Log(targetY);
         }
         
         if (isPaused)
@@ -93,5 +93,13 @@ public class WaterLevels : MonoBehaviour
         };
         TweenInstance inst = gameObject.AddTween(tween);
         return inst;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("PlayerHead"))
+        {
+            hud.gameEnd(false);
+        }
     }
 }

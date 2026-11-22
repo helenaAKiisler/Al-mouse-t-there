@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class ObjectAttachable : ObjectGrabbable
 {
+    [SerializeField] private GameObject triggerCollider;
     private Transform objectAttachPoint;
     public bool canAttach = false;
     public Rigidbody body;
     public SewerLid currentSewerLid;
     public IceCream currectStick;
-    private bool showingHud = false;
+    public bool showingHud = false;
+    public bool isAttached = false;
     private void Start()
     {
         body = GetComponent<Rigidbody>();
@@ -20,15 +22,19 @@ public class ObjectAttachable : ObjectGrabbable
             Debug.Log("CAN ATTACH");
         }
 
+        if (!canAttach)
+        {
+            Debug.Log("CAN NOT ATTACH");
+        }
         if (canAttach && !showingHud)
         {
-            Debug.Log("SHOWING HUD");
+            Debug.Log("SHOWING ATTACHABLE HUD");
             Hud.OnInteract();
             showingHud = true;
         }
         else if (!canAttach && showingHud)
         {
-            Debug.Log("HIDING HUD");
+            Debug.Log("HIDING ATTACHABLE HUD");
             Hud.OnInteractEnd();
             showingHud = false;
         }
@@ -55,6 +61,7 @@ public class ObjectAttachable : ObjectGrabbable
     {
         if (canAttach && objectAttachPoint != null)
         {
+            isAttached = true;
             //Set it as child of attach point
             transform.SetParent(objectAttachPoint);
 
@@ -64,7 +71,8 @@ public class ObjectAttachable : ObjectGrabbable
 
             //Snapping position and rotation locally - relative to parent
             transform.localPosition = Vector3.zero;
-            transform.rotation = Quaternion.identity;
+            transform.localRotation = Quaternion.identity;
+            //transform.rotation = Quaternion.identity;
 
             //Notify sewerlid that it has handle
             if (currentSewerLid != null && !currentSewerLid.isIce)
@@ -76,11 +84,16 @@ public class ObjectAttachable : ObjectGrabbable
             {
                 WaterLevels.Instance.isLvl2 = true;
                 WaterLevels.Instance.isMove = true;
+                
+                
             }
-
-            canAttach = false;
-            showingHud = false;
+            if(triggerCollider!=null)
+            {
+                triggerCollider.SetActive(false);
+            }
             Hud.OnInteractEnd();
+            showingHud = false;
+            canAttach = false;
         }
     }
 }

@@ -16,24 +16,31 @@ public class LoseCondition : MonoBehaviour
     {
         
     }
-
+    
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("LOSE CONDITION RUNNING");
+        //Debug.Log("LOSE CONDITION RUNNING");
         if (gameOver) return;
-        float waterY = waterLevel.transform.position.y;
-        Debug.Log(
-            "Head: " + headPoint.position.y +
-            " Water: " + waterY
-        );
-        
+        //float waterY = waterLevel.transform.position.y;
         
         //if water has reached the player --> player has fallen into the water
-        if (headPoint.position.y <= waterY)
-        {
-            gameOver = true;
-            hud.gameEnd(false);
-        }
+        // if (headPoint.position.y <= waterY)
+        // {
+        //     Debug.Log("LOSE!");
+        //     gameOver = true;
+        //     hud.gameEnd(false);
+        // }
     }
+
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if (gameOver) return;
+    //
+    //     if (other.CompareTag("Water"))
+    //     {
+    //         gameOver = true;
+    //         hud.gameEnd(false);
+    //     }
+    // }
 }

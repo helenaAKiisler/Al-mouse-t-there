@@ -21,7 +21,6 @@ public class ObjectGrabbable : MonoBehaviour
 
     private void Update()
     {
-        
     }
     public void Grab(Transform objectHoldPointTransform, Collider playerCol) 
     {
@@ -63,8 +62,17 @@ public class ObjectGrabbable : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //so the hud does not show up again if the object is already attached
+        ObjectAttachable attachable =GetComponent<ObjectAttachable>();
+        if (attachable != null && attachable.isAttached)
+        {
+            attachable.showingHud = false;
+            //playerInteractable = true;
+            return;
+        }
         if (other.CompareTag("Player"))
         {
+            Debug.Log("GRABBABLE ENTER");
             playerInteractable = true;
             hud.OnInteract();
         }
@@ -72,8 +80,14 @@ public class ObjectGrabbable : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        ObjectAttachable attachable =GetComponent<ObjectAttachable>();
+        if (attachable != null && attachable.isAttached)
+        {
+            return;
+        }
         if (other.CompareTag("Player"))
         {
+            Debug.Log("GRABBABLE EXIT");
             playerInteractable = false;
             hud.OnInteractEnd();
         }

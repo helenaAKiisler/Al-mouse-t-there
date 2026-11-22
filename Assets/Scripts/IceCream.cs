@@ -6,6 +6,7 @@ public class IceCream : MonoBehaviour
     private ObjectAttachable objectAttachable;
     public bool isOpen;
     public bool hasHandle;
+    
     // [SerializeField] private HUD hud;
 
     private void Start()
@@ -16,8 +17,13 @@ public class IceCream : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out ObjectAttachable attachable)) 
+        if (other.TryGetComponent(out ObjectAttachable attachable))
         {
+            if (attachable.isAttached)
+            {
+                attachable.canAttach = false;
+                return;
+            }
             attachable.SetTargetAttachPoint(objectAttachPoint);
             attachable.SetCurrentStick(this);
             attachable.canAttach = true;
@@ -35,7 +41,7 @@ public class IceCream : MonoBehaviour
             attachable.canAttach = false;
             attachable.SetTargetAttachPoint(null);
             Debug.Log("SET canAttach FALSE");
-            // hud.OnInteractEnd();
+            //hud.OnInteractEnd();
 
         }
     }

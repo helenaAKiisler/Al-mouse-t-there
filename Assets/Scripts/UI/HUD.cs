@@ -47,21 +47,25 @@ public class HUD : MonoBehaviour
 
     public void OnDockInteraction()
     {
+        gameObject.SetActive(true);
         dockText.SetActive(true);
     }
 
     public void OnDockEndInteraction()
     {
+        gameObject.SetActive(false);
         dockText.SetActive(false);
     }
 
     public void OnInteract()
     {
+        Debug.Log("INTERACT HUD ON");
         gameObject.SetActive(true);
         interactText.SetActive(true);
     }
     public void OnInteractEnd()
     {
+        Debug.Log("INTERACT HUD OFF");
         gameObject.SetActive(false);
         interactText.SetActive(false);
     }
