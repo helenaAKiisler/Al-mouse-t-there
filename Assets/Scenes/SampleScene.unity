@@ -51132,6 +51132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCBoatInteraction
   NPC: {fileID: 0}
+  NPCAnimator: {fileID: 0}
   boat: {fileID: 0}
   dock: {fileID: 0}
   onBoat: 0
