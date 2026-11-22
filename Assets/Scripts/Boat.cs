@@ -6,6 +6,7 @@ public class Boat : MonoBehaviour
 {
     public bool PlayerMounted = false;
     private PlayerMovement playerMovement;
+    private Animator playerAnimator;
     private Rigidbody boatRigidbody;
     private Vector2 movementInput;
     public float moveSpeed = 5f;
@@ -101,6 +102,7 @@ public class Boat : MonoBehaviour
         // Get the player's components
         playerObject = player;
         playerMovement = player.GetComponent<PlayerMovement>();
+        playerAnimator = player.GetComponentInChildren<Animator>();
         playerTransform = player.transform;
 
         if (playerMovement == null)
@@ -112,6 +114,8 @@ public class Boat : MonoBehaviour
         // Disable normal player movement
         //playerMovement.enabled = false;
         playerMovement.isInBoat = true;
+        //Also the animation
+        playerAnimator.SetFloat("Speed", 0);
 
 
         // Attach player to the boat

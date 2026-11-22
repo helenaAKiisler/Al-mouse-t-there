@@ -50632,8 +50632,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f30a82e2c363ff840b3b70c3f1e7b269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCBoatInteraction
-  NPC: {fileID: 1309339619}
-  boat: {fileID: 1402689988}
+  NPC: {fileID: 0}
+  boat: {fileID: 0}
   dock: {fileID: 0}
   onBoat: 0
   interactRange: 2
@@ -76405,7 +76405,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3159798782264367959, guid: db65366ea9e0c834e8a97e67f6316b5a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5951216
+      value: 1.683
       objectReference: {fileID: 0}
     - target: {fileID: 3159798782264367959, guid: db65366ea9e0c834e8a97e67f6316b5a, type: 3}
       propertyPath: m_LocalPosition.z
