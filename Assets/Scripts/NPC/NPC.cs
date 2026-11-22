@@ -35,8 +35,8 @@ public class NPC : MonoBehaviour
     {
         movement = GetComponent<NPCMovement>();
         //Rotation of the NPC when idle and following the player
-        idleRotation = Quaternion.Euler(90f, 0f, 9f);
-        followRotation = Quaternion.Euler(90f, 0f, 0f);
+        idleRotation = Quaternion.Euler(0f, 180f, 9f);
+        followRotation = Quaternion.Euler(0f, 270f, 0f);
 
         if (player == null)
         {

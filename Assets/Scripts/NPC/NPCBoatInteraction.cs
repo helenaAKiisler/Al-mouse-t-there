@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class NPCBoatInteraction : MonoBehaviour
 {
     public GameObject NPC;
+    public Animator NPCAnimator;
     private ObjectDockable objectDockable;
     public Boat boat;
     public ObjectDockable dock;
@@ -19,6 +20,7 @@ public class NPCBoatInteraction : MonoBehaviour
     void Start()
     {
         NPC = gameObject;
+        NPCAnimator = gameObject.GetComponentInChildren<Animator>();
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -35,6 +37,8 @@ public class NPCBoatInteraction : MonoBehaviour
                 {
 
                     boat.MountNPC(NPC);
+                    NPCAnimator.SetBool("IsRunning", false);
+                    NPCAnimator.SetFloat("Speed", 0);
                     onBoat = true;
                     print("Dock entered");
                 }
