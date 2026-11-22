@@ -29280,7 +29280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5888733026520990617, guid: fdf89daceaccfcb4d9b0315b032f9dc2, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6365857979669432789, guid: fdf89daceaccfcb4d9b0315b032f9dc2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29318,8 +29318,7 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Boat
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5888733026520990617, guid: fdf89daceaccfcb4d9b0315b032f9dc2, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5647130025488116118, guid: fdf89daceaccfcb4d9b0315b032f9dc2, type: 3}
@@ -66862,7 +66861,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1865477982
 Transform:
   m_ObjectHideFlags: 0
@@ -128211,6 +128210,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6982531546212174160, guid: 04d1ce62c19d84b429dbe739a98b9c06, type: 3}
+      propertyPath: npc
+      value: 
+      objectReference: {fileID: 958877696}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

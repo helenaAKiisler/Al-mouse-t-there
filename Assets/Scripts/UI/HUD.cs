@@ -15,7 +15,7 @@ public class HUD : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //gameObject.SetActive(true);
+        gameObject.SetActive(true);
         GameWinPanel.SetActive(false);
         dockText.SetActive(false);
         interactText.SetActive(false);
@@ -32,7 +32,7 @@ public class HUD : MonoBehaviour
     public void gameEnd(bool isVictory)
     {
         Time.timeScale = 0;
-        gameObject.SetActive(true);
+        // gameObject.SetActive(true);
         GameWinPanel.SetActive(true);
         GameEndText.text = isVictory ? "Victory" : "Game Over";
         NextLevelButton.interactable = isVictory;
@@ -47,26 +47,26 @@ public class HUD : MonoBehaviour
 
     public void OnDockInteraction()
     {
-        gameObject.SetActive(true);
+        // gameObject.SetActive(true);
         dockText.SetActive(true);
     }
 
     public void OnDockEndInteraction()
     {
-        gameObject.SetActive(false);
+        // gameObject.SetActive(false);
         dockText.SetActive(false);
     }
 
     public void OnInteract()
     {
-        Debug.Log("INTERACT HUD ON");
-        gameObject.SetActive(true);
+        // Debug.Log("INTERACT HUD ON");
+        // gameObject.SetActive(true);
         interactText.SetActive(true);
     }
     public void OnInteractEnd()
     {
-        Debug.Log("INTERACT HUD OFF");
-        gameObject.SetActive(false);
+        // Debug.Log("INTERACT HUD OFF");
+        // gameObject.SetActive(false);
         interactText.SetActive(false);
     }
 

@@ -158,6 +158,5 @@ public class NPC : MonoBehaviour
     {
         Debug.Log("COMPLETE QUEST CALLED");
         quest.currentState = Quest.QuestState.Completed;
-        SetState(NPCState.Idle);
     }
 }
