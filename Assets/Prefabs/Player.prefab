@@ -155,6 +155,7 @@ GameObject:
   - component: {fileID: 3486127095502991632}
   - component: {fileID: 1807313048372623739}
   - component: {fileID: 2984531672849210607}
+  - component: {fileID: 5062877421916178020}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -371,6 +372,21 @@ MonoBehaviour:
   boatCam: {fileID: 0}
   boatCamLeft: {fileID: 0}
   isPoopTunnel: 0
+--- !u!114 &5062877421916178020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7910188659377374847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a604ba17fe4ba4a44b69cc8315e60eb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSqueaks
+  squeaks:
+  - {fileID: 8300000, guid: b254c8b8c7bcd224393d3b3a89d0ca0a, type: 3}
+  - {fileID: 8300000, guid: ac7a69d1c6c4fbe4593cf6996a8982b1, type: 3}
 --- !u!1 &8964325365263551361
 GameObject:
   m_ObjectHideFlags: 0
