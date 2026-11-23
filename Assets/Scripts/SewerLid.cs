@@ -61,7 +61,7 @@ public class SewerLid : MonoBehaviour
         //Starting coroutine
         StartCoroutine(RotateHingeRoutine());
         //And play sound
-        SoundFXManager.instance.PlaySoundFXClip(openLidSoundClip, transform, 1f);
+        SoundFXManager.instance.PlaySoundFXClip(openLidSoundClip, transform, 0.5f);
     }
 
 
