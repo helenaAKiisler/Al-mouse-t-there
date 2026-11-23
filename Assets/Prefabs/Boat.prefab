@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 319330838961908777}
   m_Layer: 0
   m_Name: Boat
-  m_TagString: Untagged
+  m_TagString: Boat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -175,6 +175,7 @@ MonoBehaviour:
   boatTransform: {fileID: 0}
   waterPlaneLevel: {fileID: 0}
   player: {fileID: 0}
+  NPCOnBoat: 0
 --- !u!54 &7002045495089570532
 Rigidbody:
   m_ObjectHideFlags: 0

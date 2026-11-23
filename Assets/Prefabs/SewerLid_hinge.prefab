@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SewerLid
   objectAttachPoint: {fileID: 4069133261329434489}
+  openLidSoundClip: {fileID: 0}
   isOpen: 0
   hasHandle: 0
   isIce: 0
@@ -242,13 +243,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5668047300260980301}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.04, y: -0.59, z: -1.98}
+  m_LocalRotation: {x: -0.09276683, y: -0, z: -0, w: 0.99568784}
+  m_LocalPosition: {x: -1.04, y: -0.451, z: -1.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3926082850448318049}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -10.646, y: 0, z: 0}
 --- !u!1 &8956569397473522911
 GameObject:
   m_ObjectHideFlags: 0

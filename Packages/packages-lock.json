@@ -327,6 +327,12 @@
       },
       "url": "https://packages.unity.com"
     },
+    "ezhex1991.ezsoftbone": {
+      "version": "file:C:/Users/Lisbeth/Downloads/EZSoftBone-master/EZSoftBone-master",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "nl.jeffreylanters.tweens": {
       "version": "https://github.com/jeffreylanters/unity-tweens.git",
       "depth": 0,

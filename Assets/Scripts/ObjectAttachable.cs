@@ -82,6 +82,7 @@ public class ObjectAttachable : ObjectGrabbable
 
             if (currectStick != null)
             {
+                SoundFXManager.instance.PlaySoundFXClip(currectStick.woodenBridgeSoundClip, currectStick.transform, 1f);
                 WaterLevels.Instance.isLvl2 = true;
                 WaterLevels.Instance.isMove = true;
                 

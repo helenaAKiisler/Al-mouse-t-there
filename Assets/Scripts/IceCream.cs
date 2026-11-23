@@ -3,6 +3,7 @@ using UnityEngine;
 public class IceCream : MonoBehaviour
 {
     [SerializeField] private Transform objectAttachPoint;
+    [SerializeField] public AudioClip woodenBridgeSoundClip;
     private ObjectAttachable objectAttachable;
     public bool isOpen;
     public bool hasHandle;
