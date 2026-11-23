@@ -7,7 +7,7 @@ public class PlayerSqueaks : MonoBehaviour
 
     private float squeakChance = 0.1f;
     private float cooldown = 5f;
-    private float volume = 1f; //full
+    private float volume = 0.5f; //full is 1f
 
     private void Start()
     {
