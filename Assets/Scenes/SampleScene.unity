@@ -64503,7 +64503,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!320 &1737483808
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -81470,7 +81470,7 @@ PrefabInstance:
     - target: {fileID: 1526387368125743109, guid: 947b39aecd0121a4ca86619c3baf75bc, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 55b9bffefcd8bb94c90cecb58c390403, type: 2}
+      objectReference: {fileID: 2100000, guid: b270f207d760f224e9223fe3f05a9322, type: 2}
     - target: {fileID: 2717956904215155430, guid: 947b39aecd0121a4ca86619c3baf75bc, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -131223,6 +131223,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6871489020531902531, guid: 04d1ce62c19d84b429dbe739a98b9c06, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 23b752e98d9810e4481f187c7c15a4af, type: 2}
     - target: {fileID: 6982531546212174160, guid: 04d1ce62c19d84b429dbe739a98b9c06, type: 3}
       propertyPath: npc
       value: 

@@ -328,10 +328,11 @@
       "url": "https://packages.unity.com"
     },
     "ezhex1991.ezsoftbone": {
-      "version": "file:C:/Users/Lisbeth/Downloads/EZSoftBone-master/EZSoftBone-master",
+      "version": "https://github.com/EZhex1991/EZSoftBone.git",
       "depth": 0,
-      "source": "local",
-      "dependencies": {}
+      "source": "git",
+      "dependencies": {},
+      "hash": "7591bb5f1a130e743ff24f0ff9d6a90b0606062e"
     },
     "nl.jeffreylanters.tweens": {
       "version": "https://github.com/jeffreylanters/unity-tweens.git",
