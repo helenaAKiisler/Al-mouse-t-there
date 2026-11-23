@@ -52,6 +52,9 @@ public class SoundFXManager : MonoBehaviour
         //Assign volume
         audioSource.volume = volume;
 
+        //Assign pitch maybe
+        audioSource.pitch = Random.Range(.7f, 1.5f);
+
         //Play sound
         audioSource.Play();
 
