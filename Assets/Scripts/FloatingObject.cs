@@ -25,6 +25,8 @@ public class FloatingObject : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Debug.Log("Starting FloatingObject Y: "  + transform.position.y);
+        
         waterHeight = WaterReference.transform.position.y;
         m_Rigidbody = GetComponent<Rigidbody>();
     }
@@ -32,22 +34,25 @@ public class FloatingObject : MonoBehaviour
     
     void FixedUpdate()
     {
-        waterHeight = WaterReference.transform.localPosition.y;
+        waterHeight = WaterReference.transform.position.y;
         float difference = transform.position.y - waterHeight;
 
         if (difference < 0)
         {
             m_Rigidbody.AddForceAtPosition(Vector3.up * floatingPower * Mathf.Abs(difference), transform.position, ForceMode.Force);
+            if (!underwater)
+            {
+                underwater = true;
+                SwitchState(true);
+            }
         }
 
-        if (!underwater)
-        {
-            underwater = true;
-        }
+        
 
         else if (underwater)
         {
             underwater = false;
+            SwitchState(false);
         }
 
     }

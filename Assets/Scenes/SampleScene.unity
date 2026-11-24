@@ -17430,7 +17430,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.23932326, y: -0.04225621, z: 0.01042605, w: 0.96996397}
-  m_LocalPosition: {x: 4.5, y: 4.812, z: -15.97}
+  m_LocalPosition: {x: 4.5, y: 4.87, z: -15.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29789,7 +29789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5647130025488116118, guid: fdf89daceaccfcb4d9b0315b032f9dc2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.308
+      value: -1.25
       objectReference: {fileID: 0}
     - target: {fileID: 5647130025488116118, guid: fdf89daceaccfcb4d9b0315b032f9dc2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -29825,7 +29825,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5888733026520990617, guid: fdf89daceaccfcb4d9b0315b032f9dc2, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6365857979669432789, guid: fdf89daceaccfcb4d9b0315b032f9dc2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29841,7 +29841,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7002045495089570532, guid: fdf89daceaccfcb4d9b0315b032f9dc2, type: 3}
       propertyPath: m_Mass
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7002045495089570532, guid: fdf89daceaccfcb4d9b0315b032f9dc2, type: 3}
       propertyPath: m_Constraints
@@ -34363,6 +34363,10 @@ PrefabInstance:
     - target: {fileID: 1807313048372623739, guid: 20f69e638f9471c428f00bcb29b1fde0, type: 3}
       propertyPath: m_LinearDamping
       value: 2.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 2234780327070618995, guid: 20f69e638f9471c428f00bcb29b1fde0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2288920137226727203, guid: 20f69e638f9471c428f00bcb29b1fde0, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -40979,6 +40983,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3930953231278106589, guid: f89a04a90211f404380d93161989d286, type: 3}
+      propertyPath: m_Mass
+      value: 0.0000001
+      objectReference: {fileID: 0}
     - target: {fileID: 5006168309535726066, guid: f89a04a90211f404380d93161989d286, type: 3}
       propertyPath: m_Height
       value: 1.992172
@@ -45725,7 +45733,7 @@ Transform:
   m_GameObject: {fileID: 1128370345}
   serializedVersion: 2
   m_LocalRotation: {x: 0.23932326, y: -0.04225621, z: 0.01042605, w: 0.96996397}
-  m_LocalPosition: {x: 4.5, y: 4.812, z: -15.97}
+  m_LocalPosition: {x: 4.5, y: 4.87, z: -15.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -49376,7 +49384,7 @@ Transform:
   m_GameObject: {fileID: 1255074319}
   serializedVersion: 2
   m_LocalRotation: {x: 0.16938762, y: 0.68651867, z: -0.16938762, w: 0.68651867}
-  m_LocalPosition: {x: -6.2299995, y: 4.812, z: -6.0400004}
+  m_LocalPosition: {x: -6.2299995, y: 4.87, z: -6.0400004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -54866,11 +54874,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7385b1452987a364583c8c4d11778278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FloatingObject
-  underWaterDrag: 2
+  underWaterDrag: 3
   underWaterAngularDrag: 1
   airDrag: 0
   airAngularDrag: 0.05
-  floatingPower: 25
+  floatingPower: 100
   WaterReference: {fileID: 760051754}
   waterHeight: 0
 --- !u!1 &1403672714

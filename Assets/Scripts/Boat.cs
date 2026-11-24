@@ -45,13 +45,13 @@ public class Boat : MonoBehaviour
     {
         Vector3 pos = boatRigidbody.position;
 
-        if (WaterLevels.Instance != null)
-        {
-            pos.y = WaterLevels.Instance.transform.position.y;
-        } else if (waterPlaneLevel != null)
-        {
-            pos.y = waterPlaneLevel.position.y;
-        }
+        // if (WaterLevels.Instance != null)
+        // {
+        //     pos.y = WaterLevels.Instance.transform.position.y;
+        // } else if (waterPlaneLevel != null)
+        // {
+        //     pos.y = waterPlaneLevel.position.y;
+        // }
 
         boatRigidbody.MovePosition(pos); //resets position to the water y-level
         
