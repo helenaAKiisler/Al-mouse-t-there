@@ -1,0 +1,69 @@
+using UnityEngine;
+
+[RequireComponent(typeof (Rigidbody))]
+
+public class FloatingObject : MonoBehaviour
+{
+    public float underWaterDrag = 3f;
+
+    public float underWaterAngularDrag = 1f;
+
+    public float airDrag = 0f;
+
+    public float airAngularDrag = 0.05f;
+
+    public float floatingPower = 15f;
+
+    public GameObject WaterReference;
+    
+    public float waterHeight;
+    
+    Rigidbody m_Rigidbody;
+    
+    bool underwater;
+    
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        waterHeight = WaterReference.transform.position.y;
+        m_Rigidbody = GetComponent<Rigidbody>();
+    }
+    
+    
+    void FixedUpdate()
+    {
+        waterHeight = WaterReference.transform.localPosition.y;
+        float difference = transform.position.y - waterHeight;
+
+        if (difference < 0)
+        {
+            m_Rigidbody.AddForceAtPosition(Vector3.up * floatingPower * Mathf.Abs(difference), transform.position, ForceMode.Force);
+        }
+
+        if (!underwater)
+        {
+            underwater = true;
+        }
+
+        else if (underwater)
+        {
+            underwater = false;
+        }
+
+    }
+
+    void SwitchState(bool isUnderwater)
+    {
+        if (isUnderwater)
+        {
+            m_Rigidbody.linearDamping = underWaterDrag;
+            m_Rigidbody.angularDamping = underWaterAngularDrag;
+        }
+
+        else
+        {
+            m_Rigidbody.linearDamping = airDrag;
+            m_Rigidbody.angularDamping = airAngularDrag;
+        }
+    }
+}
